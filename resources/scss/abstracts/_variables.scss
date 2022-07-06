@@ -1,11 +1,12 @@
-$primary-font: sans-serif;
-$secondary-font: sans-serif;
+$primary-font: 'Heebo', sans-serif;
+$secondary-font: 'Heebo', sans-serif;
 
-$primary-color: #09843B;
-$secondary-color: #E52B2A;
+$primary-color: #FF7676;
+$secondary-color: #333333;
 
-$white: #fff;
-$black: #000;
-$light-gray: #F4F4F4;
-$medium-gray: #535353;
-$dark-gray: #2B2B2B;
+$white: #FFFFFF;
+$black: $secondary-color;
+$xlight-gray: #F9F9F9;
+$light-gray: #6D6D6D;
+$medium-gray: #525252;
+$dark-gray: #3F3F3F;

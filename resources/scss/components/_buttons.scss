@@ -6,9 +6,7 @@
 .button {
   margin: .5rem;
   color: $primary-color;
-  background-color: transparent;
-  border: 2px solid $primary-color;
-  border-radius: rem-calc(5px);
+  background-color: $primary-color;
   padding: .75rem 2rem;
   font-size: rem-calc(18px);
   min-width: 10rem;

@@ -3,4 +3,116 @@ header {
   top: 0;
   left: 0;
   width: 100%;
+  padding: 1.5rem 0;
+
+  .logo-container {
+    a {
+      cursor: pointer;
+    }
+
+    img {
+      width: rem-calc(60px);
+      height: rem-calc(60px);
+    }
+  }
+
+  .hamburger {
+    position: relative;
+    z-index: 9;
+    display: block;
+    background-color: transparent;
+    border: none;
+    height: rem-calc(28px);
+    width: rem-calc(35px);
+    margin-left: auto;
+    margin-right: 0;
+    cursor: pointer;
+
+    & > div {
+      background-color: $primary-color;
+      width: 100%;
+      height: rem-calc(4px);
+      position: absolute;
+      right: 0;
+      transition: .15s ease-in-out;
+
+      &:first-child,
+      &:last-child {
+        transition-delay: .15s;
+      }
+
+      &:first-child {
+        top: 0;
+      }
+  
+      &:nth-child(2) {
+        top: calc(50% - rem-calc(2px));
+        width: 75%;
+      }
+  
+      &:last-child {
+        bottom: 0;
+      }
+    }
+  }
+
+  nav {
+    @include breakpoint(medium) {
+      min-width: 60vw;
+    }
+    @include breakpoint(large) {
+      min-width: 35vw;
+    }
+    overflow-y: auto;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 8;
+    top: 0;
+    bottom: 0;
+    right: -100%;
+    min-width: 100vw;
+    padding-top: rem-calc(100px);
+    background-color: $white;
+    opacity: 0;
+    transition: .3s ease-in-out;
+
+    ul:first-child {
+      li {
+        margin-bottom: 1rem;
+      }
+
+      a {
+        font-size: rem-calc(28px);
+        color: $primary-color;
+        font-weight: bold;
+      }
+    }
+    
+    ul:last-child {
+      li {
+        display: flex;
+        margin-bottom: .75rem;
+      }
+
+      a {
+        color: $secondary-color;
+      }
+    }
+
+    li {
+      list-style-type: none;
+    }
+
+    a {
+      @include underline-link;
+    }
+
+    img {
+      width: rem-calc(20px);
+      height: auto;
+      margin-right: 1rem;
+    }
+  }
 }

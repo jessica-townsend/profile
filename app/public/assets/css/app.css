@@ -4034,6 +4034,23 @@ select {
   }
 }
 
+body {
+  background-color: #333333;
+  font-family: "Heebo", sans-serif;
+  color: #FFFFFF;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #FF7676;
+}
+
+@media print, screen and (min-width: 64em) {
+  h1 {
+    font-size: 4.5rem;
+  }
+}
+
 .button-container {
   margin: -0.5rem;
   padding-top: 1.5rem;
@@ -4041,10 +4058,8 @@ select {
 
 .button {
   margin: 0.5rem;
-  color: #09843B;
-  background-color: transparent;
-  border: 2px solid #09843B;
-  border-radius: 0.3125rem;
+  color: #FF7676;
+  background-color: #FF7676;
   padding: 0.75rem 2rem;
   font-size: 1.125rem;
   min-width: 10rem;
@@ -4056,8 +4071,8 @@ select {
 }
 
 .button:hover {
-  color: #fff;
-  background-color: #09843B;
+  color: #FFFFFF;
+  background-color: #FF7676;
 }
 
 .fill-container {
@@ -4065,7 +4080,7 @@ select {
   width: 100%;
 }
 
-.fill-container .fill {
+.fill-container img {
   position: absolute;
   top: 0;
   left: 0;
@@ -4073,20 +4088,11 @@ select {
   bottom: 0;
   width: 100%;
   height: 100%;
-}
-
-.fill-container .fill iframe {
-  width: 100%;
-  height: 100%;
-  box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.1);
-}
-
-.fill-container img.fill {
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
-  background-color: #09843B;
+  background-color: #FF7676;
 }
 
 .fill-container::after {
@@ -4101,5 +4107,204 @@ header {
   top: 0;
   left: 0;
   width: 100%;
+  padding: 1.5rem 0;
+}
+
+header .logo-container a {
+  cursor: pointer;
+}
+
+header .logo-container img {
+  width: 3.75rem;
+  height: 3.75rem;
+}
+
+header .hamburger {
+  position: relative;
+  z-index: 9;
+  display: block;
+  background-color: transparent;
+  border: none;
+  height: 1.75rem;
+  width: 2.1875rem;
+  margin-left: auto;
+  margin-right: 0;
+  cursor: pointer;
+}
+
+header .hamburger > div {
+  background-color: #FF7676;
+  width: 100%;
+  height: 0.25rem;
+  position: absolute;
+  right: 0;
+  transition: 0.15s ease-in-out;
+}
+
+header .hamburger > div:first-child,
+header .hamburger > div:last-child {
+  transition-delay: 0.15s;
+}
+
+header .hamburger > div:first-child {
+  top: 0;
+}
+
+header .hamburger > div:nth-child(2) {
+  top: -webkit-calc(50% - 0.125rem);
+  top: calc(50% - 0.125rem);
+  width: 75%;
+}
+
+header .hamburger > div:last-child {
+  bottom: 0;
+}
+
+header nav {
+  overflow-y: auto;
+  position: fixed;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 8;
+  top: 0;
+  bottom: 0;
+  right: -100%;
+  min-width: 100vw;
+  padding-top: 6.25rem;
+  background-color: #FFFFFF;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+}
+
+@media print, screen and (min-width: 40em) {
+  header nav {
+    min-width: 60vw;
+  }
+}
+
+@media print, screen and (min-width: 64em) {
+  header nav {
+    min-width: 35vw;
+  }
+}
+
+header nav ul:first-child li {
+  margin-bottom: 1rem;
+}
+
+header nav ul:first-child a {
+  font-size: 1.75rem;
+  color: #FF7676;
+  font-weight: bold;
+}
+
+header nav ul:last-child li {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 0.75rem;
+}
+
+header nav ul:last-child a {
+  color: #333333;
+}
+
+header nav li {
+  list-style-type: none;
+}
+
+header nav a {
+  position: relative;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+header nav a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 100%;
+  height: 0.125rem;
+  background-color: currentColor;
+  transition: 0.3s;
+}
+
+header nav a:hover::after {
+  right: 0;
+}
+
+header nav img {
+  width: 1.25rem;
+  height: auto;
+  margin-right: 1rem;
+}
+
+.landing .grid-x {
+  min-height: 100vh;
+  align-items: flex-end;
+}
+
+.landing p {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+}
+
+@media print, screen and (min-width: 64em) {
+  .landing p {
+    font-size: 1.5rem;
+  }
+}
+
+.landing a {
+  color: #FFFFFF;
+}
+
+.landing a svg {
+  transition: 0.3s;
+  width: 15px;
+  height: auto;
+}
+
+.landing a:hover svg {
+  transform: translateY(5px);
+}
+
+.mobile-menu-open {
+  overflow: hidden;
+}
+
+.mobile-menu-open header .hamburger > div:first-child,
+.mobile-menu-open header .hamburger > div:last-child {
+  width: 20px;
+}
+
+.mobile-menu-open header .hamburger > div:first-child {
+  transform: rotate(45deg);
+  transform-origin: bottom right;
+  top: -webkit-calc(50% - 1.5px);
+  top: calc(50% - 1.5px);
+}
+
+.mobile-menu-open header .hamburger > div:nth-child(2) {
+  width: 100%;
+}
+
+.mobile-menu-open header .hamburger > div:last-child {
+  transform: rotate(-45deg);
+  transform-origin: top right;
+  bottom: -webkit-calc(50% - 1.5px);
+  bottom: calc(50% - 1.5px);
+}
+
+.mobile-menu-open header nav {
+  right: 0;
+  opacity: 1;
 }
 

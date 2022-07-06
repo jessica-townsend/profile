@@ -1,0 +1,29 @@
+.landing {
+  .grid-x {
+    min-height: 100vh;
+    align-items: flex-end;
+  }
+
+  p {
+    @include breakpoint(large) {
+      font-size: rem-calc(24px);
+    }
+    font-size: rem-calc(18px);
+    margin-bottom: 1rem;
+  }
+
+  a {
+    color: $white;
+    
+    svg {
+      transition: .3s;
+      width: 15px;
+      height: auto;
+    }
+
+    &:hover svg {
+      transform: translateY(5px);
+    }
+  }
+
+}

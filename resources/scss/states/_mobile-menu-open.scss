@@ -1,0 +1,33 @@
+.mobile-menu-open {
+  overflow: hidden;
+
+  header {
+    .hamburger > div {
+      &:first-child,
+      &:last-child {
+        width: 20px;
+      }
+  
+      &:first-child {
+        transform: rotate(45deg);
+        transform-origin: bottom right;
+        top: calc(50% - 1.5px);
+      }
+  
+      &:nth-child(2) {
+        width: 100%;
+      }
+  
+      &:last-child {
+        transform: rotate(-45deg);
+        transform-origin: top right;
+        bottom: calc(50% - 1.5px);
+      }
+    }
+
+    nav {
+      right: 0;
+      opacity: 1;
+    }
+  } 
+}

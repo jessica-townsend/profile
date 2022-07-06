@@ -1,0 +1,13 @@
+body {
+  background-color: $secondary-color;
+  font-family: $primary-font;
+  color: $white;
+}
+
+h1 {
+  @include breakpoint(large) {
+    font-size: rem-calc(72px);
+  }
+  font-size: rem-calc(48px);
+  color: $primary-color;
+}
