@@ -1,5 +1,6 @@
 header {
   position: absolute;
+  z-index: 5;
   top: 0;
   left: 0;
   width: 100%;
@@ -7,7 +8,13 @@ header {
 
   .logo-container {
     a {
+      display: inline-block;
       cursor: pointer;
+      transition: .3s;
+
+      &:hover {
+        opacity: .8;
+      }
     }
 
     img {
@@ -27,6 +34,7 @@ header {
     margin-left: auto;
     margin-right: 0;
     cursor: pointer;
+    transition: .3s;
 
     & > div {
       background-color: $primary-color;
@@ -53,6 +61,10 @@ header {
       &:last-child {
         bottom: 0;
       }
+    }
+
+    &:hover {
+      opacity: .8;
     }
   }
 

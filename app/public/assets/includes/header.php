@@ -26,7 +26,7 @@
           <li><a href="#home">home</a></li>
           <li><a href="#about">about</a></li>
           <li><a href="#projects">projects</a></li>
-          <li><a href="/assets/pdf/jessica-townsend-resume.pdf">resume</a></li>
+          <li><a href="/assets/pdf/jessica-townsend-resume.pdf" target="_blank">resume</a></li>
         </ul>
         <ul>
           <li><img src="/assets/svg/mail.svg" alt=""><a href="mailto:jessicaat123@gmail.com">jessicaat123@gmail.com</a></li>

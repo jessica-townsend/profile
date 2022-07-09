@@ -4038,11 +4038,42 @@ body {
   background-color: #333333;
   font-family: "Heebo", sans-serif;
   color: #FFFFFF;
+  overflow-x: hidden;
+}
+
+section {
+  padding: 0 0 6rem;
+}
+
+@media print, screen and (min-width: 64em) {
+  section {
+    padding: 0 0 10rem;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: 1.25rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #FF7676;
+  line-height: 1.25;
 }
 
 h1 {
   font-size: 3rem;
-  color: #FF7676;
+  margin: 0;
 }
 
 @media print, screen and (min-width: 64em) {
@@ -4051,23 +4082,82 @@ h1 {
   }
 }
 
+h2 {
+  font-size: 2rem;
+}
+
+@media print, screen and (min-width: 64em) {
+  h2 {
+    font-size: 3rem;
+  }
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+@media print, screen and (min-width: 64em) {
+  h3 {
+    font-size: 2rem;
+  }
+}
+
+p {
+  line-height: 1.75;
+}
+
+a {
+  color: currentColor;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: #FF7676;
+}
+
 .button-container {
   margin: -0.5rem;
-  padding-top: 1.5rem;
+  padding-top: 0.75rem;
 }
 
 .button {
   margin: 0.5rem;
-  color: #FF7676;
+  color: #FFFFFF;
   background-color: #FF7676;
   padding: 0.75rem 2rem;
   font-size: 1.125rem;
   min-width: 10rem;
-  display: inline-block;
+  position: relative;
+  z-index: 1;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   text-decoration: none;
   transition: 0.3s;
   cursor: pointer;
+}
+
+.button svg {
+  margin-left: 1rem;
+  height: 0.75rem;
+  transition: 0.3s;
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  display: block;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 100%;
+  background-color: #ff5d5d;
+  transition: 0.3s;
 }
 
 .button:hover {
@@ -4075,9 +4165,18 @@ h1 {
   background-color: #FF7676;
 }
 
+.button:hover svg {
+  transform: translateX(5px);
+}
+
+.button:hover::after {
+  right: 0;
+}
+
 .fill-container {
   position: relative;
   width: 100%;
+  overflow: hidden;
 }
 
 .fill-container img {
@@ -4092,7 +4191,6 @@ h1 {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
-  background-color: #FF7676;
 }
 
 .fill-container::after {
@@ -4102,8 +4200,66 @@ h1 {
   padding-bottom: 100%;
 }
 
+.mountains-section {
+  position: relative;
+  background-color: transparent;
+}
+
+.mountains-section .mountains-container {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: -50vh;
+  right: -50vh;
+  bottom: 0;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 37.5em) {
+  .mountains-section .mountains-container {
+    left: 0;
+    right: 0;
+  }
+}
+
+.mountains-section .mountains-container::before {
+  content: "";
+  display: block;
+  background-color: #6D6D6D;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 35vh;
+  right: 0;
+}
+
+.mountains-section .mountains-container svg {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 50vh;
+}
+
+.mountains-section .mountains-container svg:first-child {
+  z-index: 1;
+  bottom: 35vh;
+}
+
+.mountains-section .mountains-container svg:nth-child(2) {
+  z-index: 2;
+  bottom: 20vh;
+}
+
+.mountains-section .mountains-container svg:last-child {
+  z-index: 3;
+  bottom: 0;
+}
+
 header {
   position: absolute;
+  z-index: 5;
   top: 0;
   left: 0;
   width: 100%;
@@ -4111,7 +4267,13 @@ header {
 }
 
 header .logo-container a {
+  display: inline-block;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+header .logo-container a:hover {
+  opacity: 0.8;
 }
 
 header .logo-container img {
@@ -4130,6 +4292,7 @@ header .hamburger {
   margin-left: auto;
   margin-right: 0;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 header .hamburger > div {
@@ -4158,6 +4321,10 @@ header .hamburger > div:nth-child(2) {
 
 header .hamburger > div:last-child {
   bottom: 0;
+}
+
+header .hamburger:hover {
+  opacity: 0.8;
 }
 
 header nav {
@@ -4222,6 +4389,7 @@ header nav a {
   position: relative;
   text-decoration: none;
   white-space: nowrap;
+  color: #FF7676;
 }
 
 header nav a::after {
@@ -4246,9 +4414,76 @@ header nav img {
   margin-right: 1rem;
 }
 
+footer {
+  margin-top: 1.5625rem;
+  position: relative;
+  background-color: #FFFFFF;
+  color: #FF7676;
+  padding: 4.5625rem 0 3rem;
+  text-align: center;
+}
+
+footer .button-container {
+  position: absolute;
+  padding: 0;
+  top: -1.5625rem;
+  text-align: center;
+  width: 100%;
+}
+
+footer .button {
+  position: relative;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer p a {
+  position: relative;
+  text-decoration: none;
+  white-space: nowrap;
+  color: #FF7676;
+  display: inline-block;
+  margin: 0 0 0.5rem;
+}
+
+footer p a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 100%;
+  height: 0.125rem;
+  background-color: currentColor;
+  transition: 0.3s;
+}
+
+footer p a:hover::after {
+  right: 0;
+}
+
+@media print, screen and (min-width: 64em) {
+  footer p a {
+    margin: 0 1rem;
+  }
+}
+
+footer p a:first-child {
+  margin-left: 0;
+}
+
+footer p a:last-child {
+  margin-right: 0;
+}
+
+.landing {
+  padding: 0;
+}
+
 .landing .grid-x {
   min-height: 100vh;
-  align-items: flex-end;
 }
 
 .landing p {
@@ -4274,6 +4509,143 @@ header nav img {
 
 .landing a:hover svg {
   transform: translateY(5px);
+}
+
+.about {
+  padding-top: 6rem;
+}
+
+@media print, screen and (min-width: 64em) {
+  .about {
+    padding-top: 10rem;
+  }
+}
+
+.about .grid-x {
+  justify-content: center;
+  align-items: center;
+}
+
+@media print, screen and (min-width: 64em) {
+  .about .grid-x {
+    justify-content: space-between;
+  }
+}
+
+.about .fill-container {
+  border-radius: 50%;
+}
+
+.projects .content-section {
+  text-align: left;
+}
+
+@media print, screen and (min-width: 64em) {
+  .projects .content-section {
+    text-align: center;
+  }
+}
+
+.projects .project-section {
+  position: relative;
+  margin-top: 3rem;
+}
+
+@media print, screen and (min-width: 64em) {
+  .projects .project-section {
+    margin-top: 5rem;
+  }
+}
+
+.projects .project-section::after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  background-color: #FFFFFF;
+  top: 8rem;
+  bottom: 8rem;
+  -webkit-clip-path: polygon(0 5%, 100% 0%, 100% 95%, 0% 100%);
+          clip-path: polygon(0 5%, 100% 0%, 100% 95%, 0% 100%);
+}
+
+@media print, screen and (min-width: 64em) {
+  .projects .project-section::after {
+    -webkit-clip-path: polygon(0 15%, 100% 0%, 100% 85%, 0% 100%);
+            clip-path: polygon(0 15%, 100% 0%, 100% 85%, 0% 100%);
+  }
+}
+
+.projects .project-section .grid-container {
+  position: relative;
+  z-index: 2;
+}
+
+.projects .project-section .cell {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 5px 3px rgba(51, 51, 51, 0.1);
+  border-radius: 1.5625rem;
+  overflow: hidden;
+}
+
+.projects .project-section .text-container {
+  position: relative;
+  background-color: #FFFFFF;
+  color: #333333;
+  padding: 1.5rem 2rem 3rem;
+  flex-grow: 1;
+}
+
+@media print, screen and (min-width: 64em) {
+  .projects .project-section .text-container {
+    padding: 1.5rem 2rem;
+  }
+}
+
+.projects .project-section .button-container {
+  position: absolute;
+  bottom: -1.5625rem;
+  right: unset;
+  left: 2rem;
+  z-index: 2;
+}
+
+@media print, screen and (min-width: 64em) {
+  .projects .project-section .button-container {
+    right: 2rem;
+    left: unset;
+  }
+}
+
+.projects .project-section .flag-container {
+  margin: 1.5rem -0.3125rem 1rem;
+}
+
+@media print, screen and (min-width: 64em) {
+  .projects .project-section .flag-container {
+    max-width: 50%;
+  }
+}
+
+.projects .project-section .flag-container span {
+  display: inline-block;
+  margin: 0.3125rem;
+  color: #FFFFFF;
+  background-color: #FF7676;
+  border-radius: 0.3125rem;
+  font-size: 1rem;
+  text-align: center;
+  padding: 0 0.5rem;
+  line-height: 1.75;
+}
+
+.projects .project-section .fill-container::after {
+  padding-bottom: 35%;
 }
 
 .mobile-menu-open {
