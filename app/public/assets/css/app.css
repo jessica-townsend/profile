@@ -4115,6 +4115,30 @@ a:hover {
   color: #FF7676;
 }
 
+.scroll-animation {
+  opacity: 0;
+  transition: all 0.3s ease, transform 0.75s ease-out 0s, opacity 0.75s ease-out 0s;
+}
+
+.scroll-animation.stagger {
+  transform: translateY(20px);
+}
+
+@media print, screen and (min-width: 64em) {
+  .scroll-animation.stagger:nth-child(2n) {
+    transition: all 0.3s ease, transform 0.75s ease-out 0.25s, opacity 0.75s ease-out 0.25s;
+  }
+}
+
+.scroll-animation.slide {
+  transform: translateX(-40px);
+}
+
+.scroll-animation.scrolled-to {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
 .button-container {
   margin: -0.5rem;
   padding-top: 0.75rem;
@@ -4205,14 +4229,19 @@ a:hover {
   background-color: transparent;
 }
 
+.mountains-section .grid-container {
+  position: relative;
+  z-index: 2;
+}
+
 .mountains-section .mountains-container {
   position: absolute;
-  z-index: -1;
   top: 0;
   left: -50vh;
   right: -50vh;
   bottom: 0;
   overflow: hidden;
+  background-color: #333333;
 }
 
 @media screen and (min-width: 37.5em) {
@@ -4229,32 +4258,73 @@ a:hover {
   position: absolute;
   top: 0;
   left: 0;
-  bottom: 35vh;
+  bottom: 0;
   right: 0;
 }
 
 .mountains-section .mountains-container svg {
   position: absolute;
-  z-index: -1;
+  width: 100%;
+  bottom: -webkit-calc(100% - 1px);
+  bottom: calc(100% - 1px);
+  fill: currentColor;
+}
+
+.mountains-section .mountains-container > div {
+  position: absolute;
+  background-color: currentColor;
   left: 0;
   right: 0;
   width: 100%;
-  height: 50vh;
+  bottom: 0;
+  opacity: 0;
 }
 
-.mountains-section .mountains-container svg:first-child {
-  z-index: 1;
+.mountains-section .mountains-container > div.background {
+  color: #525252;
+  top: 35vh;
+}
+
+.mountains-section .mountains-container > div.midground {
+  color: #3F3F3F;
+  top: 55vh;
+}
+
+.mountains-section .mountains-container > div.foreground {
+  color: #333333;
+  top: 75vh;
+}
+
+.mountains-section .mountains-container.fade-in::before {
+  transition: bottom 0s ease-in 0.9s;
+}
+
+.mountains-section .mountains-container.fade-in > div.background {
+  transition: opacity 0.3s ease-in, bottom 0s ease-in 0.6s;
+}
+
+.mountains-section .mountains-container.fade-in > div.midground {
+  transition: opacity 0.3s ease-in 0.3s, bottom 0s ease-in 0.9s;
+}
+
+.mountains-section .mountains-container.fade-in > div.foreground {
+  transition: opacity 0.3s ease-in 0.6s;
+}
+
+.mountains-section .mountains-container.visible::before {
   bottom: 35vh;
 }
 
-.mountains-section .mountains-container svg:nth-child(2) {
-  z-index: 2;
-  bottom: 20vh;
+.mountains-section .mountains-container.visible > div {
+  opacity: 1;
 }
 
-.mountains-section .mountains-container svg:last-child {
-  z-index: 3;
-  bottom: 0;
+.mountains-section .mountains-container.visible > div.background {
+  bottom: 45vh;
+}
+
+.mountains-section .mountains-container.visible > div.midground {
+  bottom: 25vh;
 }
 
 header {
@@ -4493,7 +4563,7 @@ footer p a:last-child {
 
 @media print, screen and (min-width: 64em) {
   .landing p {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 }
 

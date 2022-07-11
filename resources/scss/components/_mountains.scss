@@ -2,18 +2,23 @@
   position: relative;
   background-color: transparent;
 
+  .grid-container {
+    position: relative;
+    z-index: 2;
+  }
+
   .mountains-container {
     @include breakpoint(600px) {
       left: 0;
       right: 0;
     }
     position: absolute;
-    z-index: -1;
     top: 0;
     left: -50vh;
     right: -50vh;
     bottom: 0;
     overflow: hidden;
+    background-color: $black;
 
     &::before {
       content: '';
@@ -22,31 +27,77 @@
       position: absolute;
       top: 0;
       left: 0;
-      bottom: 35vh;
+      bottom: 0;
       right: 0;
     }
-
+    
     svg {
       position: absolute;
-      z-index: -1;
+      width: 100%;
+      bottom: calc(100% - 1px);
+      fill: currentColor;
+    }
+    
+    & > div {
+      position: absolute;
+      background-color: currentColor;
       left: 0;
       right: 0;
       width: 100%;
-      height: 50vh;
+      bottom: 0;
+      opacity: 0;
       
-      &:first-child {
-        z-index: 1;
+      &.background {
+        color: $medium-gray;
+        top: 35vh;
+      }
+      
+      &.midground {
+        color: $dark-gray;
+        top: 55vh;
+      }
+      
+      &.foreground {
+        color: $black;
+        top: 75vh;
+      }
+    }
+    
+    &.fade-in {
+      &::before {
+        transition: bottom 0s ease-in .9s;
+      }
+      
+      & > div {        
+        &.background {
+          transition: opacity .3s ease-in, bottom 0s ease-in .6s;
+        }
+        
+        &.midground {
+          transition: opacity .3s ease-in .3s, bottom 0s ease-in .9s;
+        }
+        
+        &.foreground {
+          transition: opacity .3s ease-in .6s;
+        }
+      }
+    }
+    
+    &.visible {
+      &::before {
         bottom: 35vh;
       }
       
-      &:nth-child(2) {
-        z-index: 2;
-        bottom: 20vh;
-      }
-      
-      &:last-child {
-        z-index: 3;
-        bottom: 0;
+      & > div {
+        opacity: 1;
+
+        &.background {
+          bottom: 45vh;
+        }
+        
+        &.midground {
+          bottom: 25vh;
+        }
       }
     }
   }

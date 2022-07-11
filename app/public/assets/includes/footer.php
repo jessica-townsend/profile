@@ -17,7 +17,7 @@
       </div>
     </footer>
   
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iamdustan-smoothscroll/0.4.0/smoothscroll.min.js"></script>
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iamdustan-smoothscroll/0.4.0/smoothscroll.min.js"></script> -->
     <script defer type="text/javascript" src="/assets/js/app.js"></script>
 
   </body>
