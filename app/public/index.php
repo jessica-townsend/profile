@@ -101,7 +101,7 @@ include('assets/includes/header.php'); ?>
               <span>goodshuffle pro</span>
             </div>
             <div class="button-container">
-              <a href="https://heartsarrowevents.com/" class="button">visit site <?php include('assets/svg/arrow-right.svg'); ?></a>
+              <a href="https://heartsarrowevents.com/" target="_blank" class="button">visit site <?php include('assets/svg/arrow-right.svg'); ?></a>
             </div>
           </div>
           <div class="fill-container">
@@ -119,7 +119,7 @@ include('assets/includes/header.php'); ?>
               <span>custom cms</span>
             </div>
             <div class="button-container">
-              <a href="https://teaysriverbrewing.com" class="button">visit site <?php include('assets/svg/arrow-right.svg'); ?></a>
+              <a href="https://teaysriverbrewing.com" target="_blank" class="button">visit site <?php include('assets/svg/arrow-right.svg'); ?></a>
             </div>
           </div>
           <div class="fill-container">
