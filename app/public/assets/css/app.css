@@ -4036,6 +4036,7 @@ select {
 
 html {
   overflow-x: hidden;
+  height: 100%;
 }
 
 body {
@@ -4413,7 +4414,7 @@ header nav {
   z-index: 8;
   top: 0;
   right: -100%;
-  height: 100vh;
+  bottom: 0;
   min-width: 100vw;
   padding-top: 6.25rem;
   background-color: #FFFFFF;
