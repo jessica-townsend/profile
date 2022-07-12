@@ -6,17 +6,19 @@ document.addEventListener('DOMContentLoaded', function() {
   var scrollEls = document.querySelectorAll(".scroll-animation");
   
   // Run functions on page load
-  animateScrollLoop(scrollEls);
-  mountainParallax();
+  headerShrink();
   fadeInMountains();
+  mountainParallax();
+  animateScrollLoop(scrollEls);
   
   // Open hamburger menu on click
   document.getElementById('hamburger').addEventListener('click', function() {
-    document.querySelector('body').classList.toggle('mobile-menu-open');
+    document.querySelector('html').classList.toggle('mobile-menu-open');
   });
   
   // Run functions on page scroll
   window.addEventListener('scroll', function() {
+    headerShrink();
     mountainParallax();
     animateScrollLoop(scrollEls);
   });
@@ -29,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const scrollEl  = e.currentTarget.getAttribute('href');
       const offsetTop = document.querySelector(scrollEl).offsetTop;
   
-      document.querySelector('body').classList.remove('mobile-menu-open');
+      document.querySelector('html').classList.remove('mobile-menu-open');
    
       scroll({
         top: offsetTop,
@@ -39,10 +41,21 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+// Shrink header on scroll & add background color
+function headerShrink() {
+  scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
+  if(scrollTop > 0) {
+    document.querySelector('html').classList.add('header-shrink');
+  }
+  else {
+    document.querySelector('html').classList.remove('header-shrink');
+  }
+}
+
 // Parallax effect on scroll for mountains
 function mountainParallax() {
   var scrollPos = window.scrollY,
-      movePos   = scrollPos / -10;
+      movePos   = scrollPos / -6;
 
   document.querySelectorAll('.mountains-container > div')[1].style.transform = "translateY("+(movePos * 1)+"px)";
   document.querySelectorAll('.mountains-container > div')[2].style.transform = "translateY("+(movePos * 2)+"px)";

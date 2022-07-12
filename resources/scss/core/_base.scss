@@ -1,4 +1,9 @@
+html {
+  overflow-x: hidden;
+}
+
 body {
+  width: 100vw;
   background-color: $secondary-color;
   font-family: $primary-font;
   color: $white;

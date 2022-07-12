@@ -1,6 +1,6 @@
 <?php 
 $meta_title = 'Jessica Townsend - Web Developer';
-$meta_desc  = 'I am a professional web developer with experience working with a team and communicating with clients to meet project objectives.';
+$meta_desc  = 'I am a professional web developer with experience communicating directly with clients and working in a team to meet project objectives.';
 include('assets/includes/header.php'); ?>
 
 <section id="home" class="landing mountains-section">
@@ -9,7 +9,7 @@ include('assets/includes/header.php'); ?>
       <div class="cell large-12">
         <h1>hello there</h1>
         <p>My name is Jessica Townsend. I develop custom web experiences.</p>
-        <a href="#about"><?php include('assets/svg/arrow-down.svg'); ?></a>
+        <a href="#about" aria-label="read more"><?php include('assets/svg/arrow-down.svg'); ?></a>
       </div>
     </div>
   </div>
@@ -51,7 +51,7 @@ include('assets/includes/header.php'); ?>
       <div class="content-grid grid-x align-center">
         <div class="cell large-8 medium-8">
           <h2>explore my work</h2>
-          <p>Here are a few of my favorite projects, developed while working at <a href="https://sfp.net">SFP</a>. If you have any questions or want to know more, email me at <a href="mailto:jessicaat123@gmail.com">jessicaat123@gmail.com</a>.</p>
+          <p>Here are a few of my favorite projects, developed while working at <a href="https://sfp.net" target="_blank">SFP</a>. If you have any questions or want to know more, email me at <a href="mailto:jessicaat123@gmail.com">jessicaat123@gmail.com</a>.</p>
         </div>
       </div>
     </div>
@@ -111,7 +111,7 @@ include('assets/includes/header.php'); ?>
         <div class="scroll-animation stagger cell large-6 medium-8">
           <div class="text-container">
             <h3>rossville quilts</h3>
-            <p>I worked on the front-end piece for this ecommerce project, which used <a href="https://sfp.net">SFP's</a> in-house Laravel-based CMS. The client was a quilting supply company based in Rossville, Indiana.</p>
+            <p>I worked on the front-end piece for this ecommerce project, which used <a href="https://sfp.net" target="_blank">SFP's</a> in-house Laravel-based CMS. The client was a quilting supply company based in Rossville, Indiana.</p>
             <div class="flag-container">
               <span>ecommerce</span>
               <span>laravel</span>

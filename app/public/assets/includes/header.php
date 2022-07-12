@@ -13,10 +13,10 @@
             </a>
           </div>
           <div class="cell small-9 nav-container">
-            <button id="hamburger" class="hamburger">
-              <div></div>
-              <div></div>
-              <div></div>
+            <button aria-label="toggle menu" id="hamburger" class="hamburger">
+              <span></span>
+              <span></span>
+              <span></span>
             </button>
           </div>
         </div>
