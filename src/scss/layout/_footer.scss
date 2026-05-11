@@ -1,0 +1,57 @@
+@use '../abstracts' as *;
+
+footer {
+  margin-top: rem-calc(25px);
+  position: relative;
+  background-color: $white;
+  color: $primary-color;
+  padding: calc(3rem + rem-calc(25px)) 0 3rem;
+  text-align: center;
+
+  .button-container {
+    position: absolute;
+    padding: 0;
+    top: rem-calc(-25px);
+    text-align: center;
+    width: 100%;
+  }
+
+  .button {
+    position: relative;
+  }
+
+  p {
+    margin: 0;
+
+    a {
+      @include underline-link;
+      @include breakpoint(large) {
+        margin: 0 1rem;
+      }
+      display: inline-block;
+      margin: 0 0 .5rem;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.show-large {
+  display: none;
+
+  @include breakpoint(large) {
+    display: block;
+  }
+}
+
+.hide-large {
+  @include breakpoint(large) {
+    display: none;
+  }
+}

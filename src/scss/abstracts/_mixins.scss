@@ -1,0 +1,46 @@
+@use 'sass:map';
+@use './variables' as *;
+@use './functions' as *;
+
+$-breakpoints: (
+  'small': 0px,
+  'medium': 640px,
+  'large': 1024px,
+  'xlarge': 1200px,
+  'xxlarge': 1440px,
+);
+
+@mixin breakpoint($size) {
+  @if map.has-key($-breakpoints, $size) {
+    @media (min-width: map.get($-breakpoints, $size)) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $size) {
+      @content;
+    }
+  }
+}
+
+@mixin underline-link {
+  position: relative;
+  text-decoration: none;
+  white-space: nowrap;
+  color: $primary-color;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 100%;
+    height: rem-calc(2px);
+    background-color: currentColor;
+    transition: .3s;
+  }
+
+  &:hover::after {
+    right: 0;
+  }
+}
