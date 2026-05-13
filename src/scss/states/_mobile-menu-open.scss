@@ -2,23 +2,23 @@
   overflow: hidden;
 
   header {
-    .hamburger > span {
-      &:first-child,
-      &:last-child {
+    .hamburger {
+      &::before,
+      &::after {
         width: 20px;
       }
 
-      &:first-child {
+      &::before {
         transform: rotate(45deg);
         transform-origin: bottom right;
         top: calc(50% - 1.5px);
       }
 
-      &:nth-child(2) {
+      & > span {
         width: 100%;
       }
 
-      &:last-child {
+      &::after {
         transform: rotate(-45deg);
         transform-origin: top right;
         bottom: calc(50% - 1.5px);

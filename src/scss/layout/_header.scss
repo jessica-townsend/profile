@@ -51,26 +51,29 @@ header {
     cursor: pointer;
     transition: .3s;
 
+    &::before,
+    &::after,
     & > span {
+      content: '';
       background-color: $primary-color;
       width: 100%;
       height: rem-calc(4px);
       position: absolute;
       right: 0;
       transition: .2s ease-in;
+    }
 
-      &:first-child {
-        top: 0;
-      }
+    &::before {
+      top: 0;
+    }
 
-      &:nth-child(2) {
-        top: calc(50% - rem-calc(2px));
-        width: 75%;
-      }
+    & > span {
+      top: calc(50% - rem-calc(2px));
+      width: 75%;
+    }
 
-      &:last-child {
-        bottom: 0;
-      }
+    &::after {
+      bottom: 0;
     }
 
     &:hover {
