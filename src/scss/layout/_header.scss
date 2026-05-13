@@ -79,12 +79,6 @@ header {
   }
 
   nav {
-    @include breakpoint(medium) {
-      min-width: 60vw;
-    }
-    @include breakpoint(large) {
-      min-width: 35vw;
-    }
     overflow-y: auto;
     position: fixed;
     display: flex;
@@ -101,13 +95,21 @@ header {
     opacity: 0;
     transition: .3s ease-in-out;
 
+    @include breakpoint(medium) {
+      min-width: 60vw;
+    }
+    
+    @include breakpoint(large) {
+      min-width: 35vw;
+    }
+
     ul:first-child {
       li {
         margin-bottom: 1rem;
       }
 
       a {
-        font-size: rem-calc(28px);
+        font-size: 1.5rem;
         color: $primary-color;
         font-weight: bold;
 

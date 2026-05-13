@@ -1,23 +1,17 @@
 @use '../abstracts' as *;
 
 html {
-  overflow-x: hidden;
-  height: 100%;
+  font-size: $font-size-base;
 }
 
 body {
-  width: 100vw;
   background-color: $secondary-color;
   font-family: $primary-font;
   color: $white;
-  overflow-x: hidden;
 }
 
 section {
-  @include breakpoint(large) {
-    padding: 0 0 10rem;
-  }
-  padding: 0 0 6rem;
+  padding: 0 0 clamp(6rem, 4.867rem + 5.66vw, 9rem);
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -25,30 +19,26 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: $primary-color;
-  line-height: 1.25;
+  line-height: 1.1;
+  font-weight: normal;
 }
 
 h1 {
-  @include breakpoint(large) {
-    font-size: rem-calc(72px);
-  }
-  font-size: rem-calc(48px);
+  font-family: $display-font;
+  font-size: clamp(4rem, 4rem + 10vw, 6rem);
+  font-weight: 400;
+  letter-spacing: 1.5%;
   margin: 0;
 }
 
 h2 {
-  @include breakpoint(large) {
-    font-size: rem-calc(48px);
-  }
-  font-size: rem-calc(32px);
+  font-family: $display-font;
+  font-size: clamp(3rem, 1.5rem + 2vw, 4rem);
+  letter-spacing: 1.5%;
 }
 
 h3 {
-  @include breakpoint(large) {
-    font-size: rem-calc(32px);
-  }
-  font-size: rem-calc(28px);
+  font-size: 1.5rem;
 }
 
 p {

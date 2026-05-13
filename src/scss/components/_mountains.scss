@@ -10,10 +10,6 @@
   }
 
   .mountains-container {
-    @include breakpoint(600px) {
-      left: 0;
-      right: 0;
-    }
     position: absolute;
     top: 0;
     left: -50vh;
@@ -21,6 +17,11 @@
     bottom: 0;
     overflow: hidden;
     background-color: $black;
+
+    @include breakpoint(medium) {
+      left: 0;
+      right: 0;
+    }
 
     &::before {
       content: '';
