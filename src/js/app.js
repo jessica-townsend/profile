@@ -55,14 +55,14 @@ function initReveal(revealEls) {
   if (!revealEls.length) return;
 
   if (!('IntersectionObserver' in window)) {
-    revealEls.forEach(el => el.classList.add('revealed'));
+    revealEls.forEach(el => el.classList.add('reveal--visible'));
     return;
   }
 
   const observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
+        entry.target.classList.add('reveal--visible');
         observer.unobserve(entry.target);
       }
     });
