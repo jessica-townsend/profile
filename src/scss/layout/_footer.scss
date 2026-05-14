@@ -1,6 +1,6 @@
 @use '../abstracts' as *;
 
-footer {
+.footer {
   margin-top: rem-calc(25px);
   position: relative;
   background-color: $white;
@@ -8,16 +8,16 @@ footer {
   padding: calc(3rem + rem-calc(25px)) 0 3rem;
   text-align: center;
 
-  .button-container {
+  &__back-to-top {
     position: absolute;
     padding: 0;
     top: rem-calc(-25px);
     text-align: center;
     width: 100%;
-  }
 
-  .button {
-    position: relative;
+    .button {
+      position: relative;
+    }
   }
 
   p {
@@ -43,7 +43,7 @@ footer {
   }
 }
 
-.show-large {
+.u-show-large {
   display: none;
 
   @include breakpoint(large) {
@@ -51,7 +51,7 @@ footer {
   }
 }
 
-.hide-large {
+.u-hide-large {
   @include breakpoint(large) {
     display: none;
   }

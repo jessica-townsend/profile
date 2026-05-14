@@ -1,6 +1,6 @@
 @use '../abstracts' as *;
 
-header {
+.header {
   position: fixed;
   z-index: 5;
   top: 0;
@@ -10,12 +10,12 @@ header {
   transition: .3s;
   overflow: hidden;
 
-  .header-inner {
+  &__inner {
     display: flex;
     align-items: center;
   }
 
-  .logo-container {
+  &__logo {
     a {
       display: inherit;
       width: rem-calc(60px);
@@ -34,122 +34,121 @@ header {
     }
   }
 
-  .nav-container {
+  &__nav-toggle {
     flex: 1;
   }
+}
 
-  .hamburger {
-    position: relative;
-    z-index: 9;
-    display: block;
-    background-color: transparent;
-    border: none;
-    height: rem-calc(28px);
-    width: rem-calc(35px);
-    margin-left: auto;
-    margin-right: 0;
-    cursor: pointer;
-    transition: .3s;
+.hamburger {
+  position: relative;
+  z-index: 9;
+  display: block;
+  background-color: transparent;
+  border: none;
+  height: rem-calc(28px);
+  width: rem-calc(35px);
+  margin-left: auto;
+  margin-right: 0;
+  cursor: pointer;
+  transition: .3s;
 
-    &::before,
-    &::after,
-    & > span {
-      content: '';
-      background-color: $primary-color;
-      width: 100%;
-      height: rem-calc(5px);
-      border-radius: rem-calc(2.5px);
-      position: absolute;
-      right: 0;
-      transition: .2s ease-in;
+  &::before,
+  &::after,
+  &__bar {
+    content: '';
+    background-color: $primary-color;
+    width: 100%;
+    height: rem-calc(5px);
+    border-radius: rem-calc(2.5px);
+    position: absolute;
+    right: 0;
+    transition: .2s ease-in;
+  }
+
+  &::before {
+    top: 0;
+  }
+
+  &__bar {
+    top: calc(50% - rem-calc(2.5px));
+    width: 75%;
+  }
+
+  &::after {
+    bottom: 0;
+  }
+
+  &:hover {
+    opacity: .8;
+  }
+}
+
+.nav {
+  overflow-y: auto;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 8;
+  top: 0;
+  right: -100%;
+  bottom: 0;
+  min-width: 100%;
+  padding-top: rem-calc(100px);
+  background-color: $white;
+  box-shadow: 0 0 5px 3px rgb($black, .1);
+  opacity: 0;
+  transition: .3s ease-in-out;
+
+  @include breakpoint(medium) {
+    min-width: 60vw;
+  }
+
+  @include breakpoint(large) {
+    min-width: 35vw;
+  }
+
+  &__item {
+    list-style-type: none;
+  }
+
+  &__link {
+    @include underline-link;
+  }
+
+  &__icon {
+    width: rem-calc(20px);
+    height: auto;
+    margin-right: 1rem;
+  }
+
+  svg.nav__icon {
+    color: $secondary-color;
+  }
+
+  &__list--primary {
+    .nav__item {
+      margin-bottom: 1rem;
     }
 
-    &::before {
-      top: 0;
-    }
+    .nav__link {
+      font-size: 1.5rem;
+      color: $primary-color;
+      font-weight: bold;
 
-    & > span {
-      top: calc(50% - rem-calc(2.5px));
-      width: 75%;
-    }
-
-    &::after {
-      bottom: 0;
-    }
-
-    &:hover {
-      opacity: .8;
+      &::after {
+        height: rem-calc(3px);
+      }
     }
   }
 
-  nav {
-    overflow-y: auto;
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    z-index: 8;
-    top: 0;
-    right: -100%;
-    bottom: 0;
-    min-width: 100%;
-    padding-top: rem-calc(100px);
-    background-color: $white;
-    box-shadow: 0 0 5px 3px rgb($black, .1);
-    opacity: 0;
-    transition: .3s ease-in-out;
-
-    @include breakpoint(medium) {
-      min-width: 60vw;
-    }
-    
-    @include breakpoint(large) {
-      min-width: 35vw;
+  &__list--secondary {
+    .nav__item {
+      display: flex;
+      margin-bottom: .75rem;
     }
 
-    ul:first-child {
-      li {
-        margin-bottom: 1rem;
-      }
-
-      a {
-        font-size: 1.5rem;
-        color: $primary-color;
-        font-weight: bold;
-
-        &::after {
-          height: rem-calc(3px);
-        }
-      }
-    }
-
-    ul:last-child {
-      li {
-        display: flex;
-        margin-bottom: .75rem;
-      }
-
-      a {
-        color: $secondary-color;
-      }
-    }
-
-    li {
-      list-style-type: none;
-    }
-
-    a {
-      @include underline-link;
-    }
-
-    img,
-    svg {
-      width: rem-calc(20px);
-      height: auto;
-      margin-right: 1rem;
-    }
-
-    svg {
+    .nav__link {
       color: $secondary-color;
     }
   }

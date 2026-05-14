@@ -35,7 +35,7 @@ function initAnchorLinks(anchorLinks, html) {
       const target = document.querySelector(e.currentTarget.getAttribute('href'));
       if (!target) return;
 
-      html.classList.remove('mobile-menu-open');
+      html.classList.remove('is-mobile-menu-open');
       scroll({
         top: target.offsetTop,
         behavior: 'smooth'
@@ -47,7 +47,7 @@ function initAnchorLinks(anchorLinks, html) {
 function initMenu(hamburger, html) {
   if (!hamburger) return;
   hamburger.addEventListener('click', function() {
-    html.classList.toggle('mobile-menu-open');
+    html.classList.toggle('is-mobile-menu-open');
   });
 }
 
@@ -82,9 +82,9 @@ function fadeInMountains(mountainsContainer) {
 function headerShrink(html) {
   const threshold = window.innerHeight * 0.5;
   if (window.scrollY > threshold) {
-    html.classList.add('header-shrink');
+    html.classList.add('is-header-shrink');
   } else {
-    html.classList.remove('header-shrink');
+    html.classList.remove('is-header-shrink');
   }
 }
 

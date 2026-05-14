@@ -1,33 +1,31 @@
-.mobile-menu-open {
+.is-mobile-menu-open {
   overflow: hidden;
 
-  header {
-    .hamburger {
-      &::before,
-      &::after {
-        width: 20px;
-      }
-
-      &::before {
-        transform: rotate(45deg);
-        transform-origin: bottom right;
-        top: calc(50% - 1.5px);
-      }
-
-      & > span {
-        width: 100%;
-      }
-
-      &::after {
-        transform: rotate(-45deg);
-        transform-origin: top right;
-        bottom: calc(50% - 1.5px);
-      }
+  .hamburger {
+    &::before,
+    &::after {
+      width: 20px;
     }
 
-    nav {
-      right: 0;
-      opacity: 1;
+    &::before {
+      transform: rotate(45deg);
+      transform-origin: bottom right;
+      top: calc(50% - 1.5px);
     }
+
+    &__bar {
+      width: 100%;
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+      transform-origin: top right;
+      bottom: calc(50% - 1.5px);
+    }
+  }
+
+  .nav {
+    right: 0;
+    opacity: 1;
   }
 }
