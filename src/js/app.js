@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   const html = document.documentElement;
   const scrollEls = document.querySelectorAll('.scroll-animation');
+  const revealEls = document.querySelectorAll('.reveal');
   const anchorLinks = document.querySelectorAll('a[href^="#"]');
   const hamburger = document.getElementById('hamburger');
   const mountainsContainer = document.querySelector('.mountains-container');
@@ -8,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   initAnchorLinks(anchorLinks, html);
   initMenu(hamburger, html);
+  initReveal(revealEls);
   fadeInMountains(mountainsContainer);
   headerShrink(html);
   mountainParallax(mountainLayers);
@@ -47,6 +49,26 @@ function initMenu(hamburger, html) {
   hamburger.addEventListener('click', function() {
     html.classList.toggle('mobile-menu-open');
   });
+}
+
+function initReveal(revealEls) {
+  if (!revealEls.length) return;
+
+  if (!('IntersectionObserver' in window)) {
+    revealEls.forEach(el => el.classList.add('revealed'));
+    return;
+  }
+
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  revealEls.forEach(el => observer.observe(el));
 }
 
 function fadeInMountains(mountainsContainer) {

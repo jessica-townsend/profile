@@ -20,25 +20,23 @@ h1, h2, h3, h4, h5, h6, p {
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
-  font-weight: normal;
+}
+
+h1, h2 {
+  font-family: $secondary-font;
 }
 
 h1 {
-  font-family: $display-font;
-  font-size: clamp(4rem, 4rem + 10vw, 6rem);
-  font-weight: 400;
-  letter-spacing: 1.5%;
+  font-size: $font-size-display;
   margin: 0;
 }
 
 h2 {
-  font-family: $display-font;
-  font-size: clamp(3rem, 1.5rem + 2vw, 4rem);
-  letter-spacing: 1.5%;
+  font-size: $font-size-xl;
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: $font-size-lg;
 }
 
 p {
