@@ -98,7 +98,7 @@ function mountainParallax(mountainLayers) {
 function animateScrollLoop(scrollEls) {
   for (let i = 0; i < scrollEls.length; i++) {
     if (animateScrolledTo(scrollEls[i])) {
-      scrollEls[i].classList.add('scrolled-to');
+      scrollEls[i].classList.add('scroll-animation--visible');
     }
   }
 }

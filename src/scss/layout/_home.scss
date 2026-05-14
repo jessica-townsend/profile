@@ -123,7 +123,7 @@
 }
 
 .projects {
-  .content-section {
+  &__intro-area {
     text-align: left;
 
     @include breakpoint(large) {
@@ -131,14 +131,14 @@
     }
   }
 
-  .projects-intro {
+  &__intro {
     @include breakpoint(large) {
       max-width: 66.667%;
       margin: 0 auto;
     }
   }
 
-  .project-section {
+  &__grid-area {
     position: relative;
     margin-top: 3rem;
 
@@ -161,85 +161,85 @@
         clip-path: polygon(0 15%, 100% 0%, 100% 85%, 0% 100%);
       }
     }
-    
+
     .container {
       position: relative;
       z-index: 2;
     }
+  }
 
-    .projects-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      justify-content: center;
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 5px 3px rgb($black, .1);
+  border-radius: rem-calc(25px);
+  overflow: hidden;
+  width: 100%;
+
+  @include breakpoint(medium) {
+    flex: 0 0 calc(66.667% - 0.75rem);
+  }
+
+  @include breakpoint(large) {
+    flex: 0 0 calc(50% - 0.75rem);
+  }
+
+  &__body {
+    position: relative;
+    background-color: $white;
+    color: $black;
+    padding: 1.5rem 2rem 3rem;
+    flex-grow: 1;
+
+    @include breakpoint(large) {
+      padding: 1.5rem 2rem;
     }
+  }
 
-    .project-card {
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 0 5px 3px rgb($black, .1);
-      border-radius: rem-calc(25px);
-      overflow: hidden;
-      width: 100%;
+  &__cta {
+    position: absolute;
+    bottom: rem-calc(-25px);
+    right: unset;
+    left: 2rem;
+    z-index: 2;
 
-      @include breakpoint(medium) {
-        flex: 0 0 calc(66.667% - 0.75rem);
-      }
-
-      @include breakpoint(large) {
-        flex: 0 0 calc(50% - 0.75rem);
-      }
+    @include breakpoint(large) {
+      right: 2rem;
+      left: unset;
     }
+  }
 
-    .text-container {
-      position: relative;
-      background-color: $white;
-      color: $black;
-      padding: 1.5rem 2rem 3rem;
-      flex-grow: 1;
+  &__flags {
+    margin: 1.5rem rem-calc(-5px) 1rem;
 
-      @include breakpoint(large) {
-        padding: 1.5rem 2rem;
-      }
+    @include breakpoint(large) {
+      max-width: 50%;
     }
+  }
 
-    .button-container {
-      position: absolute;
-      bottom: rem-calc(-25px);
-      right: unset;
-      left: 2rem;
-      z-index: 2;
-      
-      @include breakpoint(large) {
-        right: 2rem;
-        left: unset;
-      }
-    }
+  &__flag {
+    display: inline-block;
+    margin: rem-calc(5px);
+    color: $white;
+    background-color: $primary-color;
+    border-radius: rem-calc(5px);
+    font-size: $font-size-sm;
+    text-align: center;
+    padding: 0 .5rem;
+    line-height: 1.75;
+  }
 
-    .flag-container {
-      margin: 1.5rem rem-calc(-5px) 1rem;
-
-      @include breakpoint(large) {
-        max-width: 50%;
-      }
-
-      span {
-        display: inline-block;
-        margin: rem-calc(5px);
-        color: $white;
-        background-color: $primary-color;
-        border-radius: rem-calc(5px);
-        font-size: $font-size-sm;
-        text-align: center;
-        padding: 0 .5rem;
-        line-height: 1.75;
-      }
-    }
-
-    .fill-container {
-      &::after {
-        padding-bottom: 35%;
-      }
+  &__image.fill-container {
+    &::after {
+      padding-bottom: 35%;
     }
   }
 }
