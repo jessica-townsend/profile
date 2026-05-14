@@ -3,7 +3,7 @@
 .landing {
   padding: 0;
 
-  .landing-inner {
+  &__inner {
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -11,23 +11,23 @@
     padding-bottom: 3rem;
   }
 
-  p {
+  &__lead {
     font-size: 1.5rem;
     margin-block: 1rem;
   }
 
-  a {
+  &__scroll {
     color: $white;
 
-    svg {
-      transition: .3s;
-      width: 15px;
-      height: auto;
-    }
-
-    &:hover svg {
+    &:hover .landing__scroll-icon {
       transform: translateY(5px);
     }
+  }
+
+  &__scroll-icon {
+    transition: .3s;
+    width: 15px;
+    height: auto;
   }
 }
 

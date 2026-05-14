@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const revealEls = document.querySelectorAll('.reveal');
   const anchorLinks = document.querySelectorAll('a[href^="#"]');
   const hamburger = document.getElementById('hamburger');
-  const mountainsContainer = document.querySelector('.mountains-container');
-  const mountainLayers = document.querySelectorAll('.mountains-container > div');
+  const mountainsContainer = document.querySelector('.mountains');
+  const mountainLayers = document.querySelectorAll('.mountains__layer');
 
   initAnchorLinks(anchorLinks, html);
   initMenu(hamburger, html);
@@ -74,9 +74,9 @@ function initReveal(revealEls) {
 function fadeInMountains(mountainsContainer) {
   if (!mountainsContainer) return;
   if (window.scrollY === 0) {
-    mountainsContainer.classList.add('fade-in');
+    mountainsContainer.classList.add('mountains--fading-in');
   }
-  mountainsContainer.classList.add('visible');
+  mountainsContainer.classList.add('mountains--visible');
 }
 
 function headerShrink(html) {
