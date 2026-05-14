@@ -1,9 +1,9 @@
-.fill-container {
+.fill {
   position: relative;
   width: 100%;
   overflow: hidden;
 
-  img {
+  &__image {
     position: absolute;
     top: 0;
     left: 0;
