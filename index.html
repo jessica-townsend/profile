@@ -13,7 +13,7 @@
     <link rel="icon" href="/assets/meta/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Faustina:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Sedgwick+Ave&display=swap" rel="stylesheet">
     <script type="module" src="/src/main.js"></script>
   </head>
   <body>
@@ -54,7 +54,7 @@
       <section id="home" class="landing mountains-scene">
         <div class="container">
           <div class="landing__inner">
-            <h1 class="u-accent">hi, I'm Jess</h1>
+            <h1 class="u-accent">hi, i'm jess</h1>
             <p class="landing__lead">Full-stack web developer with five years of experience shipping production applications across WordPress, Shopify, and modern JavaScript stacks, recently focused on integrating AI agents into development and content workflows.</p>
             <a class="landing__scroll" href="#about" aria-label="read more">
               <svg class="landing__scroll-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 33" style="enable-background:new 0 0 21 33" xml:space="preserve" fill="currentColor"><path d="M10.5 0c.3 0 .6.1.8.3.2.2.3.5.3.8V29l7.3-7.4c.2-.2.5-.3.8-.3.3 0 .6.1.8.3.2.2.3.5.3.8 0 .3-.1.6-.3.8l-9.3 9.4c-.1.1-.2.2-.4.3 0 .1-.1.1-.3.1s-.3 0-.4-.1c-.1-.1-.3-.1-.4-.3L.4 23.2c-.3-.2-.4-.5-.4-.8 0-.3.1-.6.3-.8.2-.2.5-.3.8-.3.3 0 .6.1.8.3L9.3 29V1.2c0-.3.1-.6.3-.8.3-.3.6-.4.9-.4z"/></svg>
@@ -85,13 +85,13 @@
                     <defs>
                       <path id="badge-circle" d="M 100,100 m -78,0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0" />
                     </defs>
-                    <text font-family="Quicksand, sans-serif" font-size="20" font-weight="700" letter-spacing="2.75" fill="currentColor">
+                    <text font-family="Quicksand, sans-serif" font-size="20" font-weight="700" letter-spacing="2.45" fill="currentColor">
                       <textPath href="#badge-circle">full-stack web dev • full-stack web dev •</textPath>
                     </text>
                   </svg>
-                  <svg class="spin-badge__icon" viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="currentColor" d="M80-80v-186l350-472-70-94 64-48 56 75 56-75 64 48-70 94 350 472v186H80Zm400-591L160-240v80h120l200-280 200 280h120v-80L480-671ZM378-160h204L480-302 378-160Z"/>
-                  </svg>
+                  <div class="spin-badge__icon">
+                    <img src="/assets/svg/code.svg" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -110,82 +110,98 @@
       </section>
 
       <section id="projects" class="projects">
-        <div class="projects__intro-area">
-          <div class="container">
-            <div class="projects__intro">
-              <h2 class="u-accent">explore my work</h2>
-              <p>Here are a few projects I've worked on over the years. If you have any questions or want to know more, email me at <a href="mailto:jessicaat123@gmail.com">jessicaat123@gmail.com</a>.</p>
-            </div>
+        <div class="container">
+          <div class="projects__intro">
+            <h2 class="u-accent">explore my work</h2>
+            <p>Here are a few projects I've worked on over the years. If you have any questions or want to know more, email me at <a href="mailto:jessicaat123@gmail.com">jessicaat123@gmail.com</a>.</p>
           </div>
         </div>
-        <div class="projects__grid-area">
+
+        <div class="projects__panel">
           <div class="container">
+            <article class="project-card project-card--featured scroll-animation scroll-animation--stagger">
+              <div class="project-card__image fill">
+                <img class="fill__image" src="/assets/img/teays-river-brewing.jpg" alt="">
+              </div>
+              <div class="project-card__body">
+                <h3>teays river brewing</h3>
+                <p>A live-updating taproom site for a restaurant and brewery in Lafayette, Indiana. I integrated the Untappd API with a Vue front-end so the current beer selection updates as taps change throughout the day, letting customers check what's pouring before they head over. The site lives on a custom WordPress theme that handles the rest of the marketing content.</p>
+                <div class="project-card__flags">
+                  <span class="project-card__flag">vue</span>
+                  <span class="project-card__flag">untappd api</span>
+                  <span class="project-card__flag">wordpress</span>
+                </div>
+                <div class="project-card__cta button__container">
+                  <a href="https://teaysriverbrewing.com/" target="_blank" class="button">visit site <svg class="button__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.9 21" fill="currentColor"><path d="M0 10.5c0-.3.1-.6.3-.8.2-.2.5-.3.8-.3H29L21.6 2c-.2-.2-.3-.5-.3-.8 0-.3.1-.6.3-.8.2-.3.5-.4.8-.4.3 0 .6.1.8.3l9.4 9.3c.1.1.2.2.3.4.1.1.1.3.1.4s0 .3-.1.4c-.1.1-.1.3-.3.4l-9.4 9.3c-.2.4-.5.5-.8.5-.3 0-.6-.1-.8-.3-.2-.2-.3-.5-.3-.8 0-.3.1-.6.3-.8l7.4-7.3H1.2c-.3 0-.6-.1-.8-.3-.3-.4-.4-.7-.4-1z"/></svg></a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card project-card--featured project-card--featured-reverse scroll-animation scroll-animation--stagger">
+              <div class="project-card__image fill">
+                <img class="fill__image" src="/assets/img/teays-river-brewing.jpg" alt="">
+              </div>
+              <div class="project-card__body">
+                <h3>featured project two</h3>
+                <p>Placeholder for the second featured project &mdash; one of the main sites I've worked on in my current role at Thought &amp; Expression Co. This space holds a 2-3 sentence description with enough room to explain what the project does, the technical approach, and any standout pieces. Replace this text, image, and metadata when ready.</p>
+                <div class="project-card__flags">
+                  <span class="project-card__flag">next.js</span>
+                  <span class="project-card__flag">shopify</span>
+                  <span class="project-card__flag">wordpress</span>
+                </div>
+                <div class="project-card__cta button__container">
+                  <a href="#" target="_blank" class="button">visit site <svg class="button__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.9 21" fill="currentColor"><path d="M0 10.5c0-.3.1-.6.3-.8.2-.2.5-.3.8-.3H29L21.6 2c-.2-.2-.3-.5-.3-.8 0-.3.1-.6.3-.8.2-.3.5-.4.8-.4.3 0 .6.1.8.3l9.4 9.3c.1.1.2.2.3.4.1.1.1.3.1.4s0 .3-.1.4c-.1.1-.1.3-.3.4l-9.4 9.3c-.2.4-.5.5-.8.5-.3 0-.6-.1-.8-.3-.2-.2-.3-.5-.3-.8 0-.3.1-.6.3-.8l7.4-7.3H1.2c-.3 0-.6-.1-.8-.3-.3-.4-.4-.7-.4-1z"/></svg></a>
+                </div>
+              </div>
+            </article>
+
             <div class="projects__grid">
               <article class="project-card scroll-animation scroll-animation--stagger">
-                <div class="project-card__body">
-                  <h3>teays river brewing</h3>
-                  <p>This site was developed for a restaurant and brewery in Lafayette, Indiana, utilizing the Untappd API and Vue to display their current beer selections.</p>
-                  <div class="project-card__flags">
-                    <span class="project-card__flag">vue</span>
-                    <span class="project-card__flag">untappd api</span>
-                    <span class="project-card__flag">wordpress</span>
-                  </div>
-                  <div class="project-card__cta button__container">
-                    <a href="https://teaysriverbrewing.com/" target="_blank" class="button">visit site <svg class="button__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.9 21" style="enable-background:new 0 0 32.9 21" xml:space="preserve" fill="currentColor"><path d="M0 10.5c0-.3.1-.6.3-.8.2-.2.5-.3.8-.3H29L21.6 2c-.2-.2-.3-.5-.3-.8 0-.3.1-.6.3-.8.2-.3.5-.4.8-.4.3 0 .6.1.8.3l9.4 9.3c.1.1.2.2.3.4.1.1.1.3.1.4s0 .3-.1.4c-.1.1-.1.3-.3.4l-9.4 9.3c-.2.4-.5.5-.8.5-.3 0-.6-.1-.8-.3-.2-.2-.3-.5-.3-.8 0-.3.1-.6.3-.8l7.4-7.3H1.2c-.3 0-.6-.1-.8-.3-.3-.4-.4-.7-.4-1z"/></svg></a>
-                  </div>
-                </div>
                 <div class="project-card__image fill">
-                  <img class="fill__image" src="/assets/img/teays-river-brewing.jpg" alt="">
+                  <img class="fill__image" src="/assets/img/ag-alumni-seed.jpg" alt="">
                 </div>
-              </article>
-              <article class="project-card scroll-animation scroll-animation--stagger">
                 <div class="project-card__body">
                   <h3>ag alumni seed</h3>
-                  <p>The client for this project was a popcorn hybrid supplier in Romney, Indiana and needed a site to organize their popcorn varieties.</p>
+                  <p>A custom-CMS site for a popcorn hybrid supplier in Romney, Indiana to organize their seed varieties.</p>
                   <div class="project-card__flags">
                     <span class="project-card__flag">laravel</span>
                     <span class="project-card__flag">custom cms</span>
                   </div>
                   <div class="project-card__cta button__container">
-                    <a href="https://www.agalumniseed.com/" target="_blank" class="button">visit site <svg class="button__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.9 21" style="enable-background:new 0 0 32.9 21" xml:space="preserve" fill="currentColor"><path d="M0 10.5c0-.3.1-.6.3-.8.2-.2.5-.3.8-.3H29L21.6 2c-.2-.2-.3-.5-.3-.8 0-.3.1-.6.3-.8.2-.3.5-.4.8-.4.3 0 .6.1.8.3l9.4 9.3c.1.1.2.2.3.4.1.1.1.3.1.4s0 .3-.1.4c-.1.1-.1.3-.3.4l-9.4 9.3c-.2.4-.5.5-.8.5-.3 0-.6-.1-.8-.3-.2-.2-.3-.5-.3-.8 0-.3.1-.6.3-.8l7.4-7.3H1.2c-.3 0-.6-.1-.8-.3-.3-.4-.4-.7-.4-1z"/></svg></a>
+                    <a href="https://www.agalumniseed.com/" target="_blank" class="button">visit site <svg class="button__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.9 21" fill="currentColor"><path d="M0 10.5c0-.3.1-.6.3-.8.2-.2.5-.3.8-.3H29L21.6 2c-.2-.2-.3-.5-.3-.8 0-.3.1-.6.3-.8.2-.3.5-.4.8-.4.3 0 .6.1.8.3l9.4 9.3c.1.1.2.2.3.4.1.1.1.3.1.4s0 .3-.1.4c-.1.1-.1.3-.3.4l-9.4 9.3c-.2.4-.5.5-.8.5-.3 0-.6-.1-.8-.3-.2-.2-.3-.5-.3-.8 0-.3.1-.6.3-.8l7.4-7.3H1.2c-.3 0-.6-.1-.8-.3-.3-.4-.4-.7-.4-1z"/></svg></a>
                   </div>
-                </div>
-                <div class="project-card__image fill">
-                  <img class="fill__image" src="/assets/img/ag-alumni-seed.jpg" alt="">
                 </div>
               </article>
               <article class="project-card scroll-animation scroll-animation--stagger">
+                <div class="project-card__image fill">
+                  <img class="fill__image" src="/assets/img/hearts-arrow-events.jpg" alt="">
+                </div>
                 <div class="project-card__body">
                   <h3>hearts arrow events</h3>
-                  <p>One of the goals for this project was for users to add products to a wishlist, which was achieved with a custom WordPress theme and the Goodshuffle Pro plugin.</p>
+                  <p>Wishlist-driven event rental site using a custom WordPress theme and the Goodshuffle Pro plugin.</p>
                   <div class="project-card__flags">
                     <span class="project-card__flag">wordpress</span>
                     <span class="project-card__flag">goodshuffle pro</span>
                   </div>
                   <div class="project-card__cta button__container">
-                    <a href="https://heartsarrowevents.com/" target="_blank" class="button">visit site <svg class="button__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.9 21" style="enable-background:new 0 0 32.9 21" xml:space="preserve" fill="currentColor"><path d="M0 10.5c0-.3.1-.6.3-.8.2-.2.5-.3.8-.3H29L21.6 2c-.2-.2-.3-.5-.3-.8 0-.3.1-.6.3-.8.2-.3.5-.4.8-.4.3 0 .6.1.8.3l9.4 9.3c.1.1.2.2.3.4.1.1.1.3.1.4s0 .3-.1.4c-.1.1-.1.3-.3.4l-9.4 9.3c-.2.4-.5.5-.8.5-.3 0-.6-.1-.8-.3-.2-.2-.3-.5-.3-.8 0-.3.1-.6.3-.8l7.4-7.3H1.2c-.3 0-.6-.1-.8-.3-.3-.4-.4-.7-.4-1z"/></svg></a>
+                    <a href="https://heartsarrowevents.com/" target="_blank" class="button">visit site <svg class="button__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.9 21" fill="currentColor"><path d="M0 10.5c0-.3.1-.6.3-.8.2-.2.5-.3.8-.3H29L21.6 2c-.2-.2-.3-.5-.3-.8 0-.3.1-.6.3-.8.2-.3.5-.4.8-.4.3 0 .6.1.8.3l9.4 9.3c.1.1.2.2.3.4.1.1.1.3.1.4s0 .3-.1.4c-.1.1-.1.3-.3.4l-9.4 9.3c-.2.4-.5.5-.8.5-.3 0-.6-.1-.8-.3-.2-.2-.3-.5-.3-.8 0-.3.1-.6.3-.8l7.4-7.3H1.2c-.3 0-.6-.1-.8-.3-.3-.4-.4-.7-.4-1z"/></svg></a>
                   </div>
-                </div>
-                <div class="project-card__image fill">
-                  <img class="fill__image" src="/assets/img/hearts-arrow-events.jpg" alt="">
                 </div>
               </article>
               <article class="project-card scroll-animation scroll-animation--stagger">
-                <div class="project-card__body">
-                  <h3>rossville quilts</h3>
-                  <p>I worked on the front-end piece for this ecommerce project, which used <a href="https://sfp.net" target="_blank">SFP's</a> in-house Laravel-based CMS. The client was a quilting supply company based in Rossville, Indiana.</p>
-                  <div class="project-card__flags">
-                    <span class="project-card__flag">ecommerce</span>
-                    <span class="project-card__flag">laravel</span>
-                    <span class="project-card__flag">vue</span>
-                    <span class="project-card__flag">custom cms</span>
-                  </div>
-                  <div class="project-card__cta button__container">
-                    <a href="https://rossvillequilts.com" target="_blank" class="button">visit site <svg class="button__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.9 21" style="enable-background:new 0 0 32.9 21" xml:space="preserve" fill="currentColor"><path d="M0 10.5c0-.3.1-.6.3-.8.2-.2.5-.3.8-.3H29L21.6 2c-.2-.2-.3-.5-.3-.8 0-.3.1-.6.3-.8.2-.3.5-.4.8-.4.3 0 .6.1.8.3l9.4 9.3c.1.1.2.2.3.4.1.1.1.3.1.4s0 .3-.1.4c-.1.1-.1.3-.3.4l-9.4 9.3c-.2.4-.5.5-.8.5-.3 0-.6-.1-.8-.3-.2-.2-.3-.5-.3-.8 0-.3.1-.6.3-.8l7.4-7.3H1.2c-.3 0-.6-.1-.8-.3-.3-.4-.4-.7-.4-1z"/></svg></a>
-                  </div>
-                </div>
                 <div class="project-card__image fill">
                   <img class="fill__image" src="/assets/img/rossville-quilts.jpg" alt="">
+                </div>
+                <div class="project-card__body">
+                  <h3>rossville quilts</h3>
+                  <p>Front-end for an ecommerce site built on SFP's in-house Laravel CMS. Client was a quilting supply company in Rossville, Indiana.</p>
+                  <div class="project-card__flags">
+                    <span class="project-card__flag">ecommerce</span>
+                    <span class="project-card__flag">vue</span>
+                  </div>
+                  <div class="project-card__cta button__container">
+                    <a href="https://rossvillequilts.com" target="_blank" class="button">visit site <svg class="button__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.9 21" fill="currentColor"><path d="M0 10.5c0-.3.1-.6.3-.8.2-.2.5-.3.8-.3H29L21.6 2c-.2-.2-.3-.5-.3-.8 0-.3.1-.6.3-.8.2-.3.5-.4.8-.4.3 0 .6.1.8.3l9.4 9.3c.1.1.2.2.3.4.1.1.1.3.1.4s0 .3-.1.4c-.1.1-.1.3-.3.4l-9.4 9.3c-.2.4-.5.5-.8.5-.3 0-.6-.1-.8-.3-.2-.2-.3-.5-.3-.8 0-.3.1-.6.3-.8l7.4-7.3H1.2c-.3 0-.6-.1-.8-.3-.3-.4-.4-.7-.4-1z"/></svg></a>
+                  </div>
                 </div>
               </article>
             </div>

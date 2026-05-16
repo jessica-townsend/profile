@@ -12,7 +12,7 @@
   }
 
   &__lead {
-    font-size: 1.5rem;
+    font-size: $font-size-lg;
     margin-block: 1rem;
   }
 
@@ -92,10 +92,19 @@
   }
 
   &__icon {
-    width: 34%;
-    height: 34%;
+    width: 65%;
+    height: 65%;
     position: relative;
     z-index: 1;
+    color: $dark-gray;
+    background-color: $primary-color;
+    padding: .75rem;
+    border-radius: 50%;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
   }
 }
 
@@ -122,124 +131,184 @@
   }
 }
 
+$mountain-svg: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1532 197.2" preserveAspectRatio="none"><path fill="%23ffffff" d="M1532 197.2c.2 0-57.9-18-74.9-26-11.9-5.6-29.5-20.6-41.7-26.1-10-4.3-35.3-8-44.4-13-23.8-12.9-35.8-59.5-66.8-65-22-4-61.3 18.9-83.5 22.8-28.2 4.9-88.9 4.1-116.8 9.7-22.1 4.6-57.4 26.1-80.6 27.7-19.7 1.2-57.9-44.5-75.1-50.3-32.9-11-89.4 10.2-121.7-1.3C800.3 66.5 734.6.1 704 0c-32.8 0-36.1 24.2-62.9 35.3-15.7 6.5-44.2 29.4-53.1 39.4-8.9 10-40.9 56.7-59.8 59.2-42.8 5.8-70.5-55.3-113.9-58.7-30.8-2.5-57.2 33.9-78.3 47.2-19.2 12.2-52.3 14.4-80.2 16.8-26.5 2.3-51.1-26.6-77.8-28.2-14.6-.9-38.9 12.3-50 17.9-22.8 11.4-54.2 42.7-77.8 53.6C39 187.7 0 197.2 0 197.2h1532z"/></svg>';
+
 .projects {
-  &__intro-area {
+  &__intro {
     text-align: left;
 
     @include breakpoint(large) {
       text-align: center;
-    }
-  }
-
-  &__intro {
-    @include breakpoint(large) {
       max-width: 66.667%;
       margin: 0 auto;
     }
   }
 
-  &__grid-area {
+  &__panel {
+    $separator-height: clamp(3rem, 2rem + 4vw, 6rem);
+
     position: relative;
-    margin-top: 3rem;
+    margin-block-start: calc( 1.5 * $separator-height );
+    background-color: $white;
+    color: $secondary-color;
 
-    @include breakpoint(large) {
-      margin-top: 5rem;
-    }
-
+    &::before,
     &::after {
       content: '';
       display: block;
       position: absolute;
-      z-index: 1;
+      left: 0;
+      right: 0;
       width: 100%;
-      background-color: $white;
-      top: 8rem;
-      bottom: 8rem;
-      clip-path: polygon(0 5%, 100% 0%, 100% 95%, 0% 100%);
+      height: $separator-height;
+      background-image: url('#{$mountain-svg}');
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      pointer-events: none;
+    }
 
-      @include breakpoint(large) {
-        clip-path: polygon(0 15%, 100% 0%, 100% 85%, 0% 100%);
-      }
+    &::before {
+      bottom: 100%;
+    }
+
+    &::after {
+      top: 100%;
+      transform: scaleY(-1);
     }
 
     .container {
-      position: relative;
-      z-index: 2;
+      padding-block: calc( .5 * $separator-height );
+      display: flex;
+      flex-direction: column;
+      gap: clamp(1.5rem, 1rem + 1.5vw, 2.5rem);
     }
   }
 
   &__grid {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
     gap: 1.5rem;
-    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   }
 }
 
 .project-card {
+  background-color: $white;
+  color: $secondary-color;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba($black, .15);
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 5px 3px rgb($black, .1);
-  border-radius: rem-calc(25px);
-  overflow: hidden;
-  width: 100%;
+  transition: transform .4s ease, box-shadow .4s ease;
 
-  @include breakpoint(medium) {
-    flex: 0 0 calc(66.667% - 0.75rem);
-  }
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba($black, .25);
 
-  @include breakpoint(large) {
-    flex: 0 0 calc(50% - 0.75rem);
-  }
-
-  &__body {
-    position: relative;
-    background-color: $white;
-    color: $black;
-    padding: 1.5rem 2rem 3rem;
-    flex-grow: 1;
-
-    @include breakpoint(large) {
-      padding: 1.5rem 2rem;
+    .fill__image {
+      transform: scale(1.05);
     }
   }
 
-  &__cta {
-    position: absolute;
-    bottom: rem-calc(-25px);
-    right: unset;
-    left: 2rem;
-    z-index: 2;
+  &__image.fill {
+    aspect-ratio: 16 / 10;
+    background-color: $light-gray;
 
-    @include breakpoint(large) {
-      right: 2rem;
-      left: unset;
+    &::after {
+      display: none;
+    }
+
+    .fill__image {
+      transition: transform .6s ease;
+    }
+  }
+
+  &__body {
+    padding: 1.5rem 1.75rem 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    h3 {
+      margin: 0 0 .5rem;
+      color: $primary-color;
+      font-size: 1.5rem;
+    }
+
+    p {
+      margin: 0 0 1.25rem;
+      font-size: .95rem;
+      line-height: 1.6;
+      flex-grow: 1;
     }
   }
 
   &__flags {
-    margin: 1.5rem rem-calc(-5px) 1rem;
-
-    @include breakpoint(large) {
-      max-width: 50%;
-    }
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+    margin-bottom: 1.25rem;
   }
 
   &__flag {
-    display: inline-block;
-    margin: rem-calc(5px);
-    color: $white;
-    background-color: $primary-color;
-    border-radius: rem-calc(5px);
-    font-size: $font-size-sm;
-    text-align: center;
-    padding: 0 .5rem;
-    line-height: 1.75;
+    background-color: rgba($primary-color, .12);
+    color: $primary-color;
+    font-size: .75rem;
+    font-weight: 600;
+    padding: .25rem .65rem;
+    border-radius: 999px;
   }
 
-  &__image.fill {
-    &::after {
-      padding-bottom: 35%;
+  &__meta {
+    display: inline-flex;
+    align-items: baseline;
+    gap: .5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__meta-label {
+    font-size: .7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    opacity: .55;
+  }
+
+  &__meta-value {
+    font-size: .9rem;
+    font-weight: 600;
+  }
+
+  &__cta {
+    align-self: flex-start;
+    margin: 0;
+    padding: 0;
+  }
+
+  &--featured {
+    @include breakpoint(large) {
+      flex-direction: row;
+      align-items: stretch;
+
+      .project-card__image.fill {
+        flex: 0 0 55%;
+        aspect-ratio: auto;
+      }
+
+      .project-card__body {
+        flex: 1;
+        padding: 2.5rem;
+
+        h3 {
+          font-size: 2.25rem;
+        }
+      }
+    }
+  }
+
+  &--featured-reverse {
+    @include breakpoint(large) {
+      flex-direction: row-reverse;
     }
   }
 }

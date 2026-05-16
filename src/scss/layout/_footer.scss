@@ -1,9 +1,9 @@
 @use '../abstracts' as *;
 
 .footer {
-  margin-top: rem-calc(25px);
+  margin-top: clamp(4rem, 3rem + 4vw, 7rem);
   position: relative;
-  background-color: $white;
+  background-color: $secondary-color;
   color: $primary-color;
   padding: calc(3rem + rem-calc(25px)) 0 3rem;
   text-align: center;
