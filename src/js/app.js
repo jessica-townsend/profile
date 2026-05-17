@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
   const html = document.documentElement;
   const scrollEls = document.querySelectorAll('.scroll-animation');
-  const revealEls = document.querySelectorAll('.reveal');
+  const landingRevealEls = document.querySelectorAll('.mountains-scene .reveal');
+  const landingRevealSet = new Set(landingRevealEls);
+  const otherRevealEls = Array.from(document.querySelectorAll('.reveal')).filter(el => !landingRevealSet.has(el));
   const anchorLinks = document.querySelectorAll('a[href^="#"]');
   const hamburger = document.getElementById('hamburger');
   const mountainsContainer = document.querySelector('.mountains');
@@ -9,9 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   initAnchorLinks(anchorLinks, html);
   initMenu(hamburger, html);
-  observeVisibility(revealEls, 'reveal--visible');
+  observeVisibility(otherRevealEls, 'reveal--visible');
   observeVisibility(scrollEls, 'scroll-animation--visible');
-  fadeInMountains(mountainsContainer);
+  fadeInMountains(mountainsContainer, landingRevealEls);
   headerShrink(html);
   mountainParallax(mountainLayers);
 
@@ -70,12 +72,21 @@ function observeVisibility(els, visibleClass) {
   els.forEach(el => observer.observe(el));
 }
 
-function fadeInMountains(mountainsContainer) {
-  if (!mountainsContainer) return;
-  if (window.scrollY === 0) {
+function fadeInMountains(mountainsContainer, landingRevealEls) {
+  if (!mountainsContainer) {
+    landingRevealEls.forEach(el => el.classList.add('reveal--visible'));
+    return;
+  }
+  const isInitialLoad = window.scrollY === 0;
+  if (isInitialLoad) {
     mountainsContainer.classList.add('mountains--fading-in');
   }
   mountainsContainer.classList.add('mountains--visible');
+
+  const revealDelay = isInitialLoad ? 900 : 0;
+  setTimeout(function() {
+    landingRevealEls.forEach(el => el.classList.add('reveal--visible'));
+  }, revealDelay);
 }
 
 function headerShrink(html) {
