@@ -9,10 +9,11 @@
     flex-direction: column;
     justify-content: flex-end;
     padding-block-end: 3rem;
+    max-width: 40rem;
   }
 
   &__lead {
-    font-size: $font-size-lg;
+    // font-size: $font-size-lg;
     margin-block: 1rem;
   }
 
@@ -182,7 +183,7 @@ $mountain-svg: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" 
   &__grid {
     display: grid;
     gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   }
 }
 

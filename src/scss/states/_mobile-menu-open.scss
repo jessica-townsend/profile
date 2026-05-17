@@ -28,4 +28,16 @@
     right: 0;
     opacity: 1;
   }
+
+  .header::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: block;
+    background-color: color-mix(in srgb, #333333 50%, transparent);
+    z-index: 6;
+  }
 }
