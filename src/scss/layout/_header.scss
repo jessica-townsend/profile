@@ -27,9 +27,10 @@
         opacity: .8;
       }
 
-      img {
+      svg {
         width: 100%;
         height: 100%;
+        color: $primary-color;
       }
     }
   }
@@ -118,11 +119,8 @@
 
   &__icon {
     width: rem-calc(20px);
-    height: auto;
+    height: rem-calc(20px);
     margin-right: 1rem;
-  }
-
-  svg.nav__icon {
     color: $secondary-color;
   }
 

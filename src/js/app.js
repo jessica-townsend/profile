@@ -13,7 +13,9 @@ document.addEventListener('DOMContentLoaded', function() {
   fadeInMountains(mountainsContainer);
   headerShrink(html);
   mountainParallax(mountainLayers);
-  animateScrollLoop(scrollEls);
+  window.requestAnimationFrame(function() {
+    animateScrollLoop(scrollEls);
+  });
 
   let ticking = false;
   window.addEventListener('scroll', function() {
