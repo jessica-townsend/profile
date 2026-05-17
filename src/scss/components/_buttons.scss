@@ -5,7 +5,8 @@
   color: $white;
   background-color: transparent;
   border-radius: .5rem;
-  padding: .75rem 2rem;
+  padding-block: .75rem;
+  padding-inline: 2rem;
   min-width: 10rem;
   position: relative;
   z-index: 1;
@@ -64,8 +65,8 @@
 
   &--secondary {
     min-width: 0;
-    background-color: rgba($primary-color, .06);
-    border: 1px solid rgba($primary-color, .15);
+    background-color: color-mix(in srgb, $primary-color 6%, transparent);
+    border: 1px solid color-mix(in srgb, $primary-color 15%, transparent);
     color: $primary-color;
     gap: .5rem;
     overflow: visible;
@@ -82,8 +83,8 @@
 
     &:hover {
       color: $primary-color;
-      background-color: rgba($primary-color, .12);
-      border-color: rgba($primary-color, .35);
+      background-color: color-mix(in srgb, $primary-color 12%, transparent);
+      border-color: color-mix(in srgb, $primary-color 35%, transparent);
       transform: translateY(-2px);
 
       .button__icon {

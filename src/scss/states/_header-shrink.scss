@@ -2,9 +2,9 @@
 
 .is-header-shrink {
   .header {
-    padding: .75rem 0;
+    padding-block: .75rem;
     background-color: $white;
-    box-shadow: 0 0 5px 3px rgb($black, .1);
+    box-shadow: 0 0 5px 3px color-mix(in srgb, $black 10%, transparent);
 
     &__logo a {
       width: rem-calc(45px);

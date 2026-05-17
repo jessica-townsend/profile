@@ -11,11 +11,11 @@ body {
 }
 
 section {
-  padding: 0 0 clamp(8rem, 7.434rem + 2.83vw, 10rem);
+  padding-block-end: clamp(8rem, 7.434rem + 2.83vw, 10rem);
 }
 
 h1, h2, h3, h4, h5, h6, p {
-  margin-bottom: 1.25rem;
+  margin-block-end: 1.25rem;
   font-weight: normal;
 }
 

@@ -4,19 +4,22 @@
   position: relative;
   background-color: $secondary-color;
   color: $primary-color;
-  padding: 0 1rem clamp(1.5rem, 1rem + 1vw, 2.5rem);
+  padding-block-end: clamp(1.5rem, 1rem + 1vw, 2.5rem);
+  padding-inline: 1rem;
   text-align: center;
 
   &__headline {
     font-family: $secondary-font;
     color: $primary-color;
     font-size: clamp(2.5rem, 1.5rem + 5vw, 4.5rem);
-    margin: 0 0 .75rem;
+    margin: 0;
+    margin-block-end: .75rem;
     line-height: 1;
   }
 
   &__subtext {
-    margin: 0 auto 2.5rem;
+    margin: 0 auto;
+    margin-block-end: 2.5rem;
     max-width: 30rem;
     color: $white;
     opacity: .8;
@@ -25,7 +28,8 @@
   &__buttons {
     list-style: none;
     padding: 0;
-    margin: 0 0 4rem;
+    margin: 0;
+    margin-block-end: 4rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -38,14 +42,14 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
-    padding-top: 1.5rem;
-    margin-top: 1.5rem;
-    border-top: 1px solid rgba($white, .1);
+    padding-block-start: 1.5rem;
+    margin-block-start: 1.5rem;
+    border-block-start: 1px solid color-mix(in srgb, $white 10%, transparent);
     font-size: .8rem;
-    color: rgba($white, .55);
+    color: color-mix(in srgb, $white 55%, transparent);
 
     a {
-      color: rgba($white, .7);
+      color: color-mix(in srgb, $white 70%, transparent);
       text-decoration: none;
       transition: color .2s;
 
