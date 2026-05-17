@@ -96,7 +96,7 @@
   padding-block-start: rem-calc(100px);
   padding-inline: 2rem;
   background-color: $offwhite;
-  box-shadow: 0 0 5px 3px color-mix(in srgb, $black 10%, transparent);
+  box-shadow: $box-shadow-light;
   opacity: 0;
   transition: .3s ease-in-out;
 

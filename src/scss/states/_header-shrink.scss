@@ -4,7 +4,7 @@
   .header {
     padding-block: .75rem;
     background-color: $offwhite;
-    box-shadow: 0 0 5px 3px color-mix(in srgb, $black 10%, transparent);
+    box-shadow: $box-shadow-light;
 
     &__logo a {
       width: rem-calc(45px);

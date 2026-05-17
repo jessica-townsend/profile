@@ -27,3 +27,7 @@ $font-size-md: 1rem;
 $font-size-lg: 1.25rem;
 $font-size-xl: 3rem;
 $font-size-display: 5rem;
+
+// Shadows
+$box-shadow-light: 0 0 5px 3px color-mix(in srgb, $black 10%, transparent);
+$box-shadow-dark: 0 0 8px 5px color-mix(in srgb, $black 10%, transparent);

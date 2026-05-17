@@ -64,7 +64,7 @@
     object-fit: cover;
     display: block;
     border-radius: 50%;
-    box-shadow: 0 10px 30px color-mix(in srgb, $black 35%, transparent);
+    box-shadow: $box-shadow-light;
   }
 }
 
@@ -192,14 +192,14 @@ $mountain-svg: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" 
   color: $secondary-color;
   border-radius: 1.5rem;
   overflow: hidden;
-  box-shadow: 0 8px 24px color-mix(in srgb, $black 15%, transparent);
+  box-shadow: $box-shadow-light;
   display: flex;
   flex-direction: column;
   transition: transform .4s ease, box-shadow .4s ease, opacity .75s ease;
 
   &:hover {
     transform: translateY(-6px);
-    box-shadow: 0 16px 36px color-mix(in srgb, $black 25%, transparent);
+    box-shadow: $box-shadow-dark;
 
     .fill__image {
       transform: scale(1.05);
