@@ -11,7 +11,7 @@ body {
 }
 
 section {
-  padding: 0 0 clamp(6rem, 4.867rem + 5.66vw, 9rem);
+  padding: 0 0 clamp(8rem, 7.434rem + 2.83vw, 10rem);
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -38,6 +38,7 @@ h2 {
 
 h3 {
   font-size: $font-size-lg;
+  font-weight: 500;
 }
 
 p {
