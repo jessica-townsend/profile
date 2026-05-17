@@ -1,95 +1,50 @@
-@use 'sass:color';
 @use '../abstracts' as *;
 
 .button {
-  color: $white;
-  background-color: transparent;
+  position: relative;
+  z-index: 0;
+  color: $primary-color;
+  background-color: color-mix(in srgb, $primary-color 14%, transparent);
+  border: 1px solid color-mix(in srgb, $primary-color 35%, transparent);
   border-radius: .5rem;
   padding-block: .75rem;
-  padding-inline: 2rem;
-  min-width: 10rem;
-  position: relative;
-  z-index: 1;
+  padding-inline: 1.5rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: .65rem;
   text-align: center;
   text-decoration: none;
-  transition: .3s;
+  transition: color .3s, border-color .3s;
   cursor: pointer;
   overflow: hidden;
 
-  &__icon {
-    width: rem-calc(19px);
-    height: rem-calc(12px);
-    transition: .3s;
-  }
-
-  &::before,
-  &::after {
+  &::before {
     content: '';
     position: absolute;
-    display: block;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    background-color: color.adjust($primary-color, $lightness: -5%);
-    transition: .35s;
-    border-radius: .5rem;
-  }
-
-  &::before {
-    z-index: -2;
-    right: 0;
-    background-color: $primary-color;
-  }
-
-  &::after {
+    inset: 0;
     z-index: -1;
-    right: 100%;
+    background-color: $primary-color;
+    transform: translateX(-101%);
+    transition: transform .35s ease;
+  }
+
+  &__icon {
+    width: 1rem;
+    height: 1rem;
+    transition: transform .3s;
   }
 
   &:hover {
     color: $white;
-    background-color: transparent;
+    border-color: $primary-color;
 
-    .button__icon {
-      transform: translateX(5px);
+    &::before {
+      transform: translateX(0);
     }
 
-    &::after {
-      right: 0;
-    }
-  }
-
-  &--secondary {
-    min-width: 0;
-    background-color: color-mix(in srgb, $primary-color 6%, transparent);
-    border: 1px solid color-mix(in srgb, $primary-color 15%, transparent);
-    color: $primary-color;
-    gap: .5rem;
-    overflow: visible;
-
-    &::before,
-    &::after {
-      display: none;
-    }
-
-    .button__icon {
-      width: 1rem;
-      height: 1rem;
-    }
-
-    &:hover {
-      color: $primary-color;
-      background-color: color-mix(in srgb, $primary-color 12%, transparent);
-      border-color: color-mix(in srgb, $primary-color 35%, transparent);
-      transform: translateY(-2px);
-
-      .button__icon {
-        transform: none;
-      }
+    .button__icon--trailing {
+      transform: translateX(3px);
     }
   }
 }

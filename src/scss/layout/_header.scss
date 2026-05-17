@@ -112,10 +112,6 @@
     list-style-type: none;
   }
 
-  &__link {
-    @include underline-link;
-  }
-
   &__icon {
     width: rem-calc(20px);
     height: rem-calc(20px);

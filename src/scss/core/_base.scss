@@ -47,9 +47,13 @@ p {
 
 a {
   color: currentColor;
-  transition: .3s;
+  text-decoration-thickness: .1em;
+  text-underline-offset: .25em;
+  text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+  transition: .25s, gap .25s;
 
   &:hover {
     color: $primary-color;
+    text-decoration-color: currentColor;
   }
 }

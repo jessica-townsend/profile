@@ -279,10 +279,26 @@ $mountain-svg: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" 
     font-weight: 600;
   }
 
-  &__cta {
+  &__link {
     align-self: flex-start;
-    margin: 0;
-    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    color: $primary-color;
+    font-weight: 600;
+    padding-block-end: .15rem;
+
+    svg {
+      width: .9rem;
+      height: .9rem;
+      transition: transform .25s;
+    }
+
+    &:hover {
+      svg {
+        transform: translateX(3px);
+      }
+    }
   }
 
   &--featured {
