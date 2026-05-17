@@ -194,7 +194,7 @@ $mountain-svg: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" 
   box-shadow: 0 8px 24px color-mix(in srgb, $black 15%, transparent);
   display: flex;
   flex-direction: column;
-  transition: transform .4s ease, box-shadow .4s ease;
+  transition: transform .4s ease, box-shadow .4s ease, opacity .75s ease;
 
   &:hover {
     transform: translateY(-6px);

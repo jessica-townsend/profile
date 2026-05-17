@@ -9,13 +9,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   initAnchorLinks(anchorLinks, html);
   initMenu(hamburger, html);
-  initReveal(revealEls);
+  observeVisibility(revealEls, 'reveal--visible');
+  observeVisibility(scrollEls, 'scroll-animation--visible');
   fadeInMountains(mountainsContainer);
   headerShrink(html);
   mountainParallax(mountainLayers);
-  window.requestAnimationFrame(function() {
-    animateScrollLoop(scrollEls);
-  });
 
   let ticking = false;
   window.addEventListener('scroll', function() {
@@ -24,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
     window.requestAnimationFrame(function() {
       headerShrink(html);
       mountainParallax(mountainLayers);
-      animateScrollLoop(scrollEls);
       ticking = false;
     });
   });
@@ -53,24 +50,24 @@ function initMenu(hamburger, html) {
   });
 }
 
-function initReveal(revealEls) {
-  if (!revealEls.length) return;
+function observeVisibility(els, visibleClass) {
+  if (!els.length) return;
 
   if (!('IntersectionObserver' in window)) {
-    revealEls.forEach(el => el.classList.add('reveal--visible'));
+    els.forEach(el => el.classList.add(visibleClass));
     return;
   }
 
   const observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
-        entry.target.classList.add('reveal--visible');
+        entry.target.classList.add(visibleClass);
         observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.15 });
 
-  revealEls.forEach(el => observer.observe(el));
+  els.forEach(el => observer.observe(el));
 }
 
 function fadeInMountains(mountainsContainer) {
@@ -82,7 +79,7 @@ function fadeInMountains(mountainsContainer) {
 }
 
 function headerShrink(html) {
-  const threshold = window.innerHeight * 0.5;
+  const threshold = window.innerHeight * 0.6;
   if (window.scrollY > threshold) {
     html.classList.add('is-header-shrink');
   } else {
@@ -97,15 +94,3 @@ function mountainParallax(mountainLayers) {
   mountainLayers[2].style.transform = 'translateY(' + (movePos * 2) + 'px)';
 }
 
-function animateScrollLoop(scrollEls) {
-  for (let i = 0; i < scrollEls.length; i++) {
-    if (animateScrolledTo(scrollEls[i])) {
-      scrollEls[i].classList.add('scroll-animation--visible');
-    }
-  }
-}
-
-function animateScrolledTo(el) {
-  const elTop = el.getBoundingClientRect().top;
-  return elTop <= (window.innerHeight * 0.9);
-}
