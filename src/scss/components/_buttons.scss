@@ -7,8 +7,9 @@
   background-color: color-mix(in srgb, $primary-color 14%, transparent);
   border: 1px solid color-mix(in srgb, $primary-color 35%, transparent);
   border-radius: .5rem;
-  padding-block: .75rem;
-  padding-inline: 1.5rem;
+  padding-block: .5rem;
+  padding-inline: 1.25rem;
+  min-width: 8rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
