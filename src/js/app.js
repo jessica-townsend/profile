@@ -37,12 +37,28 @@ function initAnchorLinks(anchorLinks, html) {
       if (!target) return;
 
       html.classList.remove('is-mobile-menu-open');
-      scroll({
-        top: target.offsetTop,
-        behavior: 'smooth'
-      });
+      smoothScrollTo(target.offsetTop, 1200);
     });
   }
+}
+
+function smoothScrollTo(targetY, duration) {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    window.scrollTo(0, targetY);
+    return;
+  }
+  const startY = window.scrollY;
+  const distance = targetY - startY;
+  const startTime = performance.now();
+
+  function step(now) {
+    const elapsed = now - startTime;
+    const t = Math.min(elapsed / duration, 1);
+    const eased = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+    window.scrollTo(0, startY + distance * eased);
+    if (t < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
 }
 
 function initMenu(hamburger, html) {

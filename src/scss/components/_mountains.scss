@@ -3,6 +3,7 @@
 .mountains-scene {
   position: relative;
   background-color: transparent;
+  overflow-x: clip;
 
   .container {
     position: relative;
