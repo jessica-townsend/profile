@@ -80,6 +80,14 @@
   z-index: 2;
   pointer-events: none;
 
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0%;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+  }
+
   &__ring {
     position: absolute;
     inset: 0;
@@ -93,15 +101,14 @@
   }
 
   &__icon {
-    width: 65%;
-    height: 65%;
+    width: 70%;
+    height: 70%;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    padding: .6rem;
     position: relative;
     z-index: 1;
-    color: $dark-gray;
-    background-color: $primary-color;
-    padding: .75rem;
-    border-radius: 50%;
-    box-sizing: border-box;
+    color: $primary-color;
   }
 }
 
