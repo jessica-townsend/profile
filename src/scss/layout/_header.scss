@@ -93,7 +93,7 @@
   right: -100%;
   bottom: 0;
   min-width: 100%;
-  padding-block-start: rem-calc(100px);
+  padding-block: rem-calc(100px) 3rem;
   padding-inline: 2rem;
   background-color: $offwhite;
   box-shadow: $box-shadow-light;

@@ -4,11 +4,11 @@
   padding: 0;
 
   &__inner {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding-block-end: 3rem;
+    padding-block: 6rem 4rem;
     max-width: 40rem;
   }
 
@@ -195,11 +195,11 @@ $mountain-svg: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" 
     }
 
     &::before {
-      bottom: 100%;
+      bottom: calc(100% - 1px);
     }
 
     &::after {
-      top: 100%;
+      top: calc(100% - 1px);
       transform: scaleY(-1);
     }
 
