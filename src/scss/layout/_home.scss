@@ -13,23 +13,47 @@
   }
 
   &__lead {
-    // font-size: $font-size-lg;
     margin-block: 1rem;
   }
 
   &__scroll {
-    color: $white;
+    min-width: unset;
+    padding: .5rem;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
 
-    &:hover .landing__scroll-icon {
-      transform: translateY(5px);
+    &::before {
+      transform: translateY(-101%);
+    }
+
+    &:hover {
+      &::before {
+        transform: translateY(0);
+      }
+
+      .landing__scroll-icon {
+        animation-play-state: paused;
+        transform: translateY(4px);
+      }
     }
   }
 
   &__scroll-icon {
-    transition: .3s;
-    width: 15px;
-    height: 23px;
+    height: 1rem;
+    width: auto;
+    transition: transform .3s;
+    animation: scroll-bob 3s ease-in-out infinite;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
   }
+}
+
+@keyframes scroll-bob {
+  0%, 10%, 20%, 60%, 100% { transform: translateY(0); }
+  5%, 15% { transform: translateY(4px); }
 }
 
 .about {
@@ -235,7 +259,7 @@ $mountain-svg: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" 
 
     h3 {
       margin: 0;
-      margin-block-end: .5rem;
+      margin-block-end: 1rem;
       color: $primary-color;
       font-size: 1.5rem;
     }
