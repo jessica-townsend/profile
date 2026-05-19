@@ -4,11 +4,11 @@
   padding: 0;
 
   &__inner {
-    min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding-block: 6rem 4rem;
+    padding-block: 6rem max(4rem, env(safe-area-inset-bottom));
     max-width: 40rem;
   }
 
@@ -71,6 +71,7 @@
     flex: 1 1 20rem;
     max-width: min(100%, 28rem);
     margin-inline: auto;
+    overflow-x: clip;
   }
 
   &__text {
@@ -117,6 +118,7 @@
     inset: 0;
     width: 100%;
     height: 100%;
+    overflow: hidden;
     animation: spin-badge 18s linear infinite;
 
     @media (prefers-reduced-motion: reduce) {

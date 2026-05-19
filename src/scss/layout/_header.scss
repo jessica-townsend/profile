@@ -90,7 +90,7 @@
   justify-content: space-between;
   z-index: 8;
   top: 0;
-  right: -100%;
+  right: 0;
   bottom: 0;
   min-width: 100%;
   padding-block: rem-calc(100px) 3rem;
@@ -98,7 +98,8 @@
   background-color: $offwhite;
   box-shadow: $box-shadow-light;
   opacity: 0;
-  transition: .3s ease-in-out;
+  clip-path: inset(0 0 0 100%);
+  transition: clip-path .3s ease-in-out, opacity .3s ease-in-out;
 
   @include breakpoint(medium) {
     min-width: 60vw;

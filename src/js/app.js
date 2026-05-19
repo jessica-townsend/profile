@@ -37,7 +37,8 @@ function initAnchorLinks(anchorLinks, html) {
       if (!target) return;
 
       html.classList.remove('is-mobile-menu-open');
-      smoothScrollTo(target.offsetTop, 1200);
+      const scrollPadding = parseFloat(getComputedStyle(html).scrollPaddingTop) || 0;
+      smoothScrollTo(target.offsetTop - scrollPadding, 1200);
     });
   }
 }
