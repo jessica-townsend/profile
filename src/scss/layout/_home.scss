@@ -216,7 +216,7 @@ $mountain-svg: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" 
   &__grid {
     display: grid;
     gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-template-columns: repeat( auto-fit, minmax( min( 15rem, 100% ), 1fr ) );
   }
 }
 
