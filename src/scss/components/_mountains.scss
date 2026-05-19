@@ -32,7 +32,7 @@
   svg {
     position: absolute;
     width: 100%;
-    bottom: calc(100% - 1px);
+    bottom: calc(100% - 2px);
     fill: currentColor;
   }
 
@@ -88,11 +88,11 @@
     }
 
     .mountains__layer--background {
-      bottom: 50vh;
+      bottom: 40vh;
     }
 
     .mountains__layer--midground {
-      bottom: 30vh;
+      bottom: 20vh;
     }
   }
 }
